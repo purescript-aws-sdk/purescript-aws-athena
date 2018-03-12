@@ -20,62 +20,82 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "Athena" :: String
-
 
 -- | <p>Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Use <a>ListNamedQueries</a> to get the list of named query IDs. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. Named queries are different from executed queries. Use <a>BatchGetQueryExecution</a> to get details about each unique query execution, and <a>ListQueryExecutions</a> to get a list of query execution IDs.</p>
 batchGetNamedQuery :: forall eff. BatchGetNamedQueryInput -> Aff (exception :: EXCEPTION | eff) BatchGetNamedQueryOutput
-batchGetNamedQuery = Request.request serviceName "batchGetNamedQuery" 
+batchGetNamedQuery = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "batchGetNamedQuery"
 
 
 -- | <p>Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. To get a list of query execution IDs, use <a>ListQueryExecutions</a>. Query executions are different from named (saved) queries. Use <a>BatchGetNamedQuery</a> to get details about named queries.</p>
 batchGetQueryExecution :: forall eff. BatchGetQueryExecutionInput -> Aff (exception :: EXCEPTION | eff) BatchGetQueryExecutionOutput
-batchGetQueryExecution = Request.request serviceName "batchGetQueryExecution" 
+batchGetQueryExecution = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "batchGetQueryExecution"
 
 
 -- | <p>Creates a named query.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 createNamedQuery :: forall eff. CreateNamedQueryInput -> Aff (exception :: EXCEPTION | eff) CreateNamedQueryOutput
-createNamedQuery = Request.request serviceName "createNamedQuery" 
+createNamedQuery = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "createNamedQuery"
 
 
 -- | <p>Deletes a named query.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 deleteNamedQuery :: forall eff. DeleteNamedQueryInput -> Aff (exception :: EXCEPTION | eff) DeleteNamedQueryOutput
-deleteNamedQuery = Request.request serviceName "deleteNamedQuery" 
+deleteNamedQuery = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "deleteNamedQuery"
 
 
 -- | <p>Returns information about a single query.</p>
 getNamedQuery :: forall eff. GetNamedQueryInput -> Aff (exception :: EXCEPTION | eff) GetNamedQueryOutput
-getNamedQuery = Request.request serviceName "getNamedQuery" 
+getNamedQuery = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "getNamedQuery"
 
 
 -- | <p>Returns information about a single execution of a query. Each time a query executes, information about the query execution is saved with a unique ID.</p>
 getQueryExecution :: forall eff. GetQueryExecutionInput -> Aff (exception :: EXCEPTION | eff) GetQueryExecutionOutput
-getQueryExecution = Request.request serviceName "getQueryExecution" 
+getQueryExecution = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "getQueryExecution"
 
 
 -- | <p>Returns the results of a single query execution specified by <code>QueryExecutionId</code>. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
 getQueryResults :: forall eff. GetQueryResultsInput -> Aff (exception :: EXCEPTION | eff) GetQueryResultsOutput
-getQueryResults = Request.request serviceName "getQueryResults" 
+getQueryResults = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "getQueryResults"
 
 
 -- | <p>Provides a list of all available query IDs.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 listNamedQueries :: forall eff. ListNamedQueriesInput -> Aff (exception :: EXCEPTION | eff) ListNamedQueriesOutput
-listNamedQueries = Request.request serviceName "listNamedQueries" 
+listNamedQueries = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "listNamedQueries"
 
 
 -- | <p>Provides a list of all available query execution IDs.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 listQueryExecutions :: forall eff. ListQueryExecutionsInput -> Aff (exception :: EXCEPTION | eff) ListQueryExecutionsOutput
-listQueryExecutions = Request.request serviceName "listQueryExecutions" 
+listQueryExecutions = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "listQueryExecutions"
 
 
 -- | <p>Runs (executes) the SQL query statements contained in the <code>Query</code> string.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 startQueryExecution :: forall eff. StartQueryExecutionInput -> Aff (exception :: EXCEPTION | eff) StartQueryExecutionOutput
-startQueryExecution = Request.request serviceName "startQueryExecution" 
+startQueryExecution = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "startQueryExecution"
 
 
 -- | <p>Stops a query execution.</p> <p>For code samples using the AWS SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>
 stopQueryExecution :: forall eff. StopQueryExecutionInput -> Aff (exception :: EXCEPTION | eff) StopQueryExecutionOutput
-stopQueryExecution = Request.request serviceName "stopQueryExecution" 
+stopQueryExecution = Request.request service method  where
+    service = Request.ServiceName "Athena"
+    method = Request.MethodName "stopQueryExecution"
 
 
 newtype BatchGetNamedQueryInput = BatchGetNamedQueryInput 
