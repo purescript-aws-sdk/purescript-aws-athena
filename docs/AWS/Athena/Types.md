@@ -42,7 +42,7 @@ Constructs BatchGetNamedQueryInput's fields from required parameters
 
 ``` purescript
 newtype BatchGetNamedQueryOutput
-  = BatchGetNamedQueryOutput { "NamedQueries" :: NullOrUndefined (NamedQueryList), "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList) }
+  = BatchGetNamedQueryOutput { "NamedQueries" :: Maybe (NamedQueryList), "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList) }
 ```
 
 ##### Instances
@@ -65,7 +65,7 @@ Constructs BatchGetNamedQueryOutput from required parameters
 #### `newBatchGetNamedQueryOutput'`
 
 ``` purescript
-newBatchGetNamedQueryOutput' :: ({ "NamedQueries" :: NullOrUndefined (NamedQueryList), "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList) } -> { "NamedQueries" :: NullOrUndefined (NamedQueryList), "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList) }) -> BatchGetNamedQueryOutput
+newBatchGetNamedQueryOutput' :: ({ "NamedQueries" :: Maybe (NamedQueryList), "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList) } -> { "NamedQueries" :: Maybe (NamedQueryList), "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList) }) -> BatchGetNamedQueryOutput
 ```
 
 Constructs BatchGetNamedQueryOutput's fields from required parameters
@@ -106,7 +106,7 @@ Constructs BatchGetQueryExecutionInput's fields from required parameters
 
 ``` purescript
 newtype BatchGetQueryExecutionOutput
-  = BatchGetQueryExecutionOutput { "QueryExecutions" :: NullOrUndefined (QueryExecutionList), "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList) }
+  = BatchGetQueryExecutionOutput { "QueryExecutions" :: Maybe (QueryExecutionList), "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList) }
 ```
 
 ##### Instances
@@ -129,7 +129,7 @@ Constructs BatchGetQueryExecutionOutput from required parameters
 #### `newBatchGetQueryExecutionOutput'`
 
 ``` purescript
-newBatchGetQueryExecutionOutput' :: ({ "QueryExecutions" :: NullOrUndefined (QueryExecutionList), "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList) } -> { "QueryExecutions" :: NullOrUndefined (QueryExecutionList), "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList) }) -> BatchGetQueryExecutionOutput
+newBatchGetQueryExecutionOutput' :: ({ "QueryExecutions" :: Maybe (QueryExecutionList), "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList) } -> { "QueryExecutions" :: Maybe (QueryExecutionList), "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList) }) -> BatchGetQueryExecutionOutput
 ```
 
 Constructs BatchGetQueryExecutionOutput's fields from required parameters
@@ -138,7 +138,7 @@ Constructs BatchGetQueryExecutionOutput's fields from required parameters
 
 ``` purescript
 newtype ColumnInfo
-  = ColumnInfo { "CatalogName" :: NullOrUndefined (String), "SchemaName" :: NullOrUndefined (String), "TableName" :: NullOrUndefined (String), "Name" :: String, "Label" :: NullOrUndefined (String), "Type" :: String, "Precision" :: NullOrUndefined (Int), "Scale" :: NullOrUndefined (Int), "Nullable" :: NullOrUndefined (ColumnNullable), "CaseSensitive" :: NullOrUndefined (Boolean) }
+  = ColumnInfo { "CatalogName" :: Maybe (String), "SchemaName" :: Maybe (String), "TableName" :: Maybe (String), "Name" :: String, "Label" :: Maybe (String), "Type" :: String, "Precision" :: Maybe (Int), "Scale" :: Maybe (Int), "Nullable" :: Maybe (ColumnNullable), "CaseSensitive" :: Maybe (Boolean) }
 ```
 
 <p>Information about the columns in a query execution result.</p>
@@ -163,7 +163,7 @@ Constructs ColumnInfo from required parameters
 #### `newColumnInfo'`
 
 ``` purescript
-newColumnInfo' :: String -> String -> ({ "CatalogName" :: NullOrUndefined (String), "SchemaName" :: NullOrUndefined (String), "TableName" :: NullOrUndefined (String), "Name" :: String, "Label" :: NullOrUndefined (String), "Type" :: String, "Precision" :: NullOrUndefined (Int), "Scale" :: NullOrUndefined (Int), "Nullable" :: NullOrUndefined (ColumnNullable), "CaseSensitive" :: NullOrUndefined (Boolean) } -> { "CatalogName" :: NullOrUndefined (String), "SchemaName" :: NullOrUndefined (String), "TableName" :: NullOrUndefined (String), "Name" :: String, "Label" :: NullOrUndefined (String), "Type" :: String, "Precision" :: NullOrUndefined (Int), "Scale" :: NullOrUndefined (Int), "Nullable" :: NullOrUndefined (ColumnNullable), "CaseSensitive" :: NullOrUndefined (Boolean) }) -> ColumnInfo
+newColumnInfo' :: String -> String -> ({ "CatalogName" :: Maybe (String), "SchemaName" :: Maybe (String), "TableName" :: Maybe (String), "Name" :: String, "Label" :: Maybe (String), "Type" :: String, "Precision" :: Maybe (Int), "Scale" :: Maybe (Int), "Nullable" :: Maybe (ColumnNullable), "CaseSensitive" :: Maybe (Boolean) } -> { "CatalogName" :: Maybe (String), "SchemaName" :: Maybe (String), "TableName" :: Maybe (String), "Name" :: String, "Label" :: Maybe (String), "Type" :: String, "Precision" :: Maybe (Int), "Scale" :: Maybe (Int), "Nullable" :: Maybe (ColumnNullable), "CaseSensitive" :: Maybe (Boolean) }) -> ColumnInfo
 ```
 
 Constructs ColumnInfo's fields from required parameters
@@ -204,7 +204,7 @@ Encode ColumnNullable
 
 ``` purescript
 newtype CreateNamedQueryInput
-  = CreateNamedQueryInput { "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) }
+  = CreateNamedQueryInput { "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken) }
 ```
 
 ##### Instances
@@ -227,7 +227,7 @@ Constructs CreateNamedQueryInput from required parameters
 #### `newCreateNamedQueryInput'`
 
 ``` purescript
-newCreateNamedQueryInput' :: DatabaseString -> NameString -> QueryString -> ({ "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) } -> { "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) }) -> CreateNamedQueryInput
+newCreateNamedQueryInput' :: DatabaseString -> NameString -> QueryString -> ({ "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken) } -> { "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken) }) -> CreateNamedQueryInput
 ```
 
 Constructs CreateNamedQueryInput's fields from required parameters
@@ -236,7 +236,7 @@ Constructs CreateNamedQueryInput's fields from required parameters
 
 ``` purescript
 newtype CreateNamedQueryOutput
-  = CreateNamedQueryOutput { "NamedQueryId" :: NullOrUndefined (NamedQueryId) }
+  = CreateNamedQueryOutput { "NamedQueryId" :: Maybe (NamedQueryId) }
 ```
 
 ##### Instances
@@ -259,7 +259,7 @@ Constructs CreateNamedQueryOutput from required parameters
 #### `newCreateNamedQueryOutput'`
 
 ``` purescript
-newCreateNamedQueryOutput' :: ({ "NamedQueryId" :: NullOrUndefined (NamedQueryId) } -> { "NamedQueryId" :: NullOrUndefined (NamedQueryId) }) -> CreateNamedQueryOutput
+newCreateNamedQueryOutput' :: ({ "NamedQueryId" :: Maybe (NamedQueryId) } -> { "NamedQueryId" :: Maybe (NamedQueryId) }) -> CreateNamedQueryOutput
 ```
 
 Constructs CreateNamedQueryOutput's fields from required parameters
@@ -300,7 +300,7 @@ Encode Date
 
 ``` purescript
 newtype Datum
-  = Datum { "VarCharValue" :: NullOrUndefined (DatumString') }
+  = Datum { "VarCharValue" :: Maybe (DatumString') }
 ```
 
 <p>A piece of data (a field in the table).</p>
@@ -325,7 +325,7 @@ Constructs Datum from required parameters
 #### `newDatum'`
 
 ``` purescript
-newDatum' :: ({ "VarCharValue" :: NullOrUndefined (DatumString') } -> { "VarCharValue" :: NullOrUndefined (DatumString') }) -> Datum
+newDatum' :: ({ "VarCharValue" :: Maybe (DatumString') } -> { "VarCharValue" :: Maybe (DatumString') }) -> Datum
 ```
 
 Constructs Datum's fields from required parameters
@@ -398,7 +398,7 @@ Encode DescriptionString
 
 ``` purescript
 newtype EncryptionConfiguration
-  = EncryptionConfiguration { "EncryptionOption" :: EncryptionOption, "KmsKey" :: NullOrUndefined (String) }
+  = EncryptionConfiguration { "EncryptionOption" :: EncryptionOption, "KmsKey" :: Maybe (String) }
 ```
 
 <p>If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.</p>
@@ -423,7 +423,7 @@ Constructs EncryptionConfiguration from required parameters
 #### `newEncryptionConfiguration'`
 
 ``` purescript
-newEncryptionConfiguration' :: EncryptionOption -> ({ "EncryptionOption" :: EncryptionOption, "KmsKey" :: NullOrUndefined (String) } -> { "EncryptionOption" :: EncryptionOption, "KmsKey" :: NullOrUndefined (String) }) -> EncryptionConfiguration
+newEncryptionConfiguration' :: EncryptionOption -> ({ "EncryptionOption" :: EncryptionOption, "KmsKey" :: Maybe (String) } -> { "EncryptionOption" :: EncryptionOption, "KmsKey" :: Maybe (String) }) -> EncryptionConfiguration
 ```
 
 Constructs EncryptionConfiguration's fields from required parameters
@@ -512,7 +512,7 @@ Constructs GetNamedQueryInput's fields from required parameters
 
 ``` purescript
 newtype GetNamedQueryOutput
-  = GetNamedQueryOutput { "NamedQuery" :: NullOrUndefined (NamedQuery) }
+  = GetNamedQueryOutput { "NamedQuery" :: Maybe (NamedQuery) }
 ```
 
 ##### Instances
@@ -535,7 +535,7 @@ Constructs GetNamedQueryOutput from required parameters
 #### `newGetNamedQueryOutput'`
 
 ``` purescript
-newGetNamedQueryOutput' :: ({ "NamedQuery" :: NullOrUndefined (NamedQuery) } -> { "NamedQuery" :: NullOrUndefined (NamedQuery) }) -> GetNamedQueryOutput
+newGetNamedQueryOutput' :: ({ "NamedQuery" :: Maybe (NamedQuery) } -> { "NamedQuery" :: Maybe (NamedQuery) }) -> GetNamedQueryOutput
 ```
 
 Constructs GetNamedQueryOutput's fields from required parameters
@@ -576,7 +576,7 @@ Constructs GetQueryExecutionInput's fields from required parameters
 
 ``` purescript
 newtype GetQueryExecutionOutput
-  = GetQueryExecutionOutput { "QueryExecution" :: NullOrUndefined (QueryExecution) }
+  = GetQueryExecutionOutput { "QueryExecution" :: Maybe (QueryExecution) }
 ```
 
 ##### Instances
@@ -599,7 +599,7 @@ Constructs GetQueryExecutionOutput from required parameters
 #### `newGetQueryExecutionOutput'`
 
 ``` purescript
-newGetQueryExecutionOutput' :: ({ "QueryExecution" :: NullOrUndefined (QueryExecution) } -> { "QueryExecution" :: NullOrUndefined (QueryExecution) }) -> GetQueryExecutionOutput
+newGetQueryExecutionOutput' :: ({ "QueryExecution" :: Maybe (QueryExecution) } -> { "QueryExecution" :: Maybe (QueryExecution) }) -> GetQueryExecutionOutput
 ```
 
 Constructs GetQueryExecutionOutput's fields from required parameters
@@ -608,7 +608,7 @@ Constructs GetQueryExecutionOutput's fields from required parameters
 
 ``` purescript
 newtype GetQueryResultsInput
-  = GetQueryResultsInput { "QueryExecutionId" :: QueryExecutionId, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryResults) }
+  = GetQueryResultsInput { "QueryExecutionId" :: QueryExecutionId, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryResults) }
 ```
 
 ##### Instances
@@ -631,7 +631,7 @@ Constructs GetQueryResultsInput from required parameters
 #### `newGetQueryResultsInput'`
 
 ``` purescript
-newGetQueryResultsInput' :: QueryExecutionId -> ({ "QueryExecutionId" :: QueryExecutionId, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryResults) } -> { "QueryExecutionId" :: QueryExecutionId, "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryResults) }) -> GetQueryResultsInput
+newGetQueryResultsInput' :: QueryExecutionId -> ({ "QueryExecutionId" :: QueryExecutionId, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryResults) } -> { "QueryExecutionId" :: QueryExecutionId, "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryResults) }) -> GetQueryResultsInput
 ```
 
 Constructs GetQueryResultsInput's fields from required parameters
@@ -640,7 +640,7 @@ Constructs GetQueryResultsInput's fields from required parameters
 
 ``` purescript
 newtype GetQueryResultsOutput
-  = GetQueryResultsOutput { "ResultSet" :: NullOrUndefined (ResultSet), "NextToken" :: NullOrUndefined (Token) }
+  = GetQueryResultsOutput { "ResultSet" :: Maybe (ResultSet), "NextToken" :: Maybe (Token) }
 ```
 
 ##### Instances
@@ -663,7 +663,7 @@ Constructs GetQueryResultsOutput from required parameters
 #### `newGetQueryResultsOutput'`
 
 ``` purescript
-newGetQueryResultsOutput' :: ({ "ResultSet" :: NullOrUndefined (ResultSet), "NextToken" :: NullOrUndefined (Token) } -> { "ResultSet" :: NullOrUndefined (ResultSet), "NextToken" :: NullOrUndefined (Token) }) -> GetQueryResultsOutput
+newGetQueryResultsOutput' :: ({ "ResultSet" :: Maybe (ResultSet), "NextToken" :: Maybe (Token) } -> { "ResultSet" :: Maybe (ResultSet), "NextToken" :: Maybe (Token) }) -> GetQueryResultsOutput
 ```
 
 Constructs GetQueryResultsOutput's fields from required parameters
@@ -688,7 +688,7 @@ Encode IdempotencyToken
 
 ``` purescript
 newtype InternalServerException
-  = InternalServerException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
@@ -713,7 +713,7 @@ Constructs InternalServerException from required parameters
 #### `newInternalServerException'`
 
 ``` purescript
-newInternalServerException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerException
+newInternalServerException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServerException
 ```
 
 Constructs InternalServerException's fields from required parameters
@@ -722,7 +722,7 @@ Constructs InternalServerException's fields from required parameters
 
 ``` purescript
 newtype InvalidRequestException
-  = InvalidRequestException { "AthenaErrorCode" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidRequestException { "AthenaErrorCode" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
@@ -747,7 +747,7 @@ Constructs InvalidRequestException from required parameters
 #### `newInvalidRequestException'`
 
 ``` purescript
-newInvalidRequestException' :: ({ "AthenaErrorCode" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) } -> { "AthenaErrorCode" :: NullOrUndefined (ErrorCode), "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidRequestException
+newInvalidRequestException' :: ({ "AthenaErrorCode" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) } -> { "AthenaErrorCode" :: Maybe (ErrorCode), "Message" :: Maybe (ErrorMessage) }) -> InvalidRequestException
 ```
 
 Constructs InvalidRequestException's fields from required parameters
@@ -756,7 +756,7 @@ Constructs InvalidRequestException's fields from required parameters
 
 ``` purescript
 newtype ListNamedQueriesInput
-  = ListNamedQueriesInput { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount) }
+  = ListNamedQueriesInput { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxNamedQueriesCount) }
 ```
 
 ##### Instances
@@ -779,7 +779,7 @@ Constructs ListNamedQueriesInput from required parameters
 #### `newListNamedQueriesInput'`
 
 ``` purescript
-newListNamedQueriesInput' :: ({ "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount) } -> { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount) }) -> ListNamedQueriesInput
+newListNamedQueriesInput' :: ({ "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxNamedQueriesCount) } -> { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxNamedQueriesCount) }) -> ListNamedQueriesInput
 ```
 
 Constructs ListNamedQueriesInput's fields from required parameters
@@ -788,7 +788,7 @@ Constructs ListNamedQueriesInput's fields from required parameters
 
 ``` purescript
 newtype ListNamedQueriesOutput
-  = ListNamedQueriesOutput { "NamedQueryIds" :: NullOrUndefined (NamedQueryIdList), "NextToken" :: NullOrUndefined (Token) }
+  = ListNamedQueriesOutput { "NamedQueryIds" :: Maybe (NamedQueryIdList), "NextToken" :: Maybe (Token) }
 ```
 
 ##### Instances
@@ -811,7 +811,7 @@ Constructs ListNamedQueriesOutput from required parameters
 #### `newListNamedQueriesOutput'`
 
 ``` purescript
-newListNamedQueriesOutput' :: ({ "NamedQueryIds" :: NullOrUndefined (NamedQueryIdList), "NextToken" :: NullOrUndefined (Token) } -> { "NamedQueryIds" :: NullOrUndefined (NamedQueryIdList), "NextToken" :: NullOrUndefined (Token) }) -> ListNamedQueriesOutput
+newListNamedQueriesOutput' :: ({ "NamedQueryIds" :: Maybe (NamedQueryIdList), "NextToken" :: Maybe (Token) } -> { "NamedQueryIds" :: Maybe (NamedQueryIdList), "NextToken" :: Maybe (Token) }) -> ListNamedQueriesOutput
 ```
 
 Constructs ListNamedQueriesOutput's fields from required parameters
@@ -820,7 +820,7 @@ Constructs ListNamedQueriesOutput's fields from required parameters
 
 ``` purescript
 newtype ListQueryExecutionsInput
-  = ListQueryExecutionsInput { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount) }
+  = ListQueryExecutionsInput { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryExecutionsCount) }
 ```
 
 ##### Instances
@@ -843,7 +843,7 @@ Constructs ListQueryExecutionsInput from required parameters
 #### `newListQueryExecutionsInput'`
 
 ``` purescript
-newListQueryExecutionsInput' :: ({ "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount) } -> { "NextToken" :: NullOrUndefined (Token), "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount) }) -> ListQueryExecutionsInput
+newListQueryExecutionsInput' :: ({ "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryExecutionsCount) } -> { "NextToken" :: Maybe (Token), "MaxResults" :: Maybe (MaxQueryExecutionsCount) }) -> ListQueryExecutionsInput
 ```
 
 Constructs ListQueryExecutionsInput's fields from required parameters
@@ -852,7 +852,7 @@ Constructs ListQueryExecutionsInput's fields from required parameters
 
 ``` purescript
 newtype ListQueryExecutionsOutput
-  = ListQueryExecutionsOutput { "QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList), "NextToken" :: NullOrUndefined (Token) }
+  = ListQueryExecutionsOutput { "QueryExecutionIds" :: Maybe (QueryExecutionIdList), "NextToken" :: Maybe (Token) }
 ```
 
 ##### Instances
@@ -875,7 +875,7 @@ Constructs ListQueryExecutionsOutput from required parameters
 #### `newListQueryExecutionsOutput'`
 
 ``` purescript
-newListQueryExecutionsOutput' :: ({ "QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList), "NextToken" :: NullOrUndefined (Token) } -> { "QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList), "NextToken" :: NullOrUndefined (Token) }) -> ListQueryExecutionsOutput
+newListQueryExecutionsOutput' :: ({ "QueryExecutionIds" :: Maybe (QueryExecutionIdList), "NextToken" :: Maybe (Token) } -> { "QueryExecutionIds" :: Maybe (QueryExecutionIdList), "NextToken" :: Maybe (Token) }) -> ListQueryExecutionsOutput
 ```
 
 Constructs ListQueryExecutionsOutput's fields from required parameters
@@ -948,7 +948,7 @@ Encode NameString
 
 ``` purescript
 newtype NamedQuery
-  = NamedQuery { "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: NullOrUndefined (NamedQueryId) }
+  = NamedQuery { "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: Maybe (NamedQueryId) }
 ```
 
 <p>A query, where <code>QueryString</code> is the SQL query statements that comprise the query.</p>
@@ -973,7 +973,7 @@ Constructs NamedQuery from required parameters
 #### `newNamedQuery'`
 
 ``` purescript
-newNamedQuery' :: DatabaseString -> NameString -> QueryString -> ({ "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: NullOrUndefined (NamedQueryId) } -> { "Name" :: NameString, "Description" :: NullOrUndefined (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: NullOrUndefined (NamedQueryId) }) -> NamedQuery
+newNamedQuery' :: DatabaseString -> NameString -> QueryString -> ({ "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: Maybe (NamedQueryId) } -> { "Name" :: NameString, "Description" :: Maybe (DescriptionString), "Database" :: DatabaseString, "QueryString" :: QueryString, "NamedQueryId" :: Maybe (NamedQueryId) }) -> NamedQuery
 ```
 
 Constructs NamedQuery's fields from required parameters
@@ -1030,7 +1030,7 @@ Encode NamedQueryList
 
 ``` purescript
 newtype QueryExecution
-  = QueryExecution { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "Query" :: NullOrUndefined (QueryString), "ResultConfiguration" :: NullOrUndefined (ResultConfiguration), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "Status" :: NullOrUndefined (QueryExecutionStatus), "Statistics" :: NullOrUndefined (QueryExecutionStatistics) }
+  = QueryExecution { "QueryExecutionId" :: Maybe (QueryExecutionId), "Query" :: Maybe (QueryString), "ResultConfiguration" :: Maybe (ResultConfiguration), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "Status" :: Maybe (QueryExecutionStatus), "Statistics" :: Maybe (QueryExecutionStatistics) }
 ```
 
 <p>Information about a single instance of a query execution.</p>
@@ -1055,7 +1055,7 @@ Constructs QueryExecution from required parameters
 #### `newQueryExecution'`
 
 ``` purescript
-newQueryExecution' :: ({ "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "Query" :: NullOrUndefined (QueryString), "ResultConfiguration" :: NullOrUndefined (ResultConfiguration), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "Status" :: NullOrUndefined (QueryExecutionStatus), "Statistics" :: NullOrUndefined (QueryExecutionStatistics) } -> { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "Query" :: NullOrUndefined (QueryString), "ResultConfiguration" :: NullOrUndefined (ResultConfiguration), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "Status" :: NullOrUndefined (QueryExecutionStatus), "Statistics" :: NullOrUndefined (QueryExecutionStatistics) }) -> QueryExecution
+newQueryExecution' :: ({ "QueryExecutionId" :: Maybe (QueryExecutionId), "Query" :: Maybe (QueryString), "ResultConfiguration" :: Maybe (ResultConfiguration), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "Status" :: Maybe (QueryExecutionStatus), "Statistics" :: Maybe (QueryExecutionStatistics) } -> { "QueryExecutionId" :: Maybe (QueryExecutionId), "Query" :: Maybe (QueryString), "ResultConfiguration" :: Maybe (ResultConfiguration), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "Status" :: Maybe (QueryExecutionStatus), "Statistics" :: Maybe (QueryExecutionStatistics) }) -> QueryExecution
 ```
 
 Constructs QueryExecution's fields from required parameters
@@ -1064,7 +1064,7 @@ Constructs QueryExecution's fields from required parameters
 
 ``` purescript
 newtype QueryExecutionContext
-  = QueryExecutionContext { "Database" :: NullOrUndefined (DatabaseString) }
+  = QueryExecutionContext { "Database" :: Maybe (DatabaseString) }
 ```
 
 <p>The database in which the query execution occurs.</p>
@@ -1089,7 +1089,7 @@ Constructs QueryExecutionContext from required parameters
 #### `newQueryExecutionContext'`
 
 ``` purescript
-newQueryExecutionContext' :: ({ "Database" :: NullOrUndefined (DatabaseString) } -> { "Database" :: NullOrUndefined (DatabaseString) }) -> QueryExecutionContext
+newQueryExecutionContext' :: ({ "Database" :: Maybe (DatabaseString) } -> { "Database" :: Maybe (DatabaseString) }) -> QueryExecutionContext
 ```
 
 Constructs QueryExecutionContext's fields from required parameters
@@ -1162,7 +1162,7 @@ Encode QueryExecutionState
 
 ``` purescript
 newtype QueryExecutionStatistics
-  = QueryExecutionStatistics { "EngineExecutionTimeInMillis" :: NullOrUndefined (Number), "DataScannedInBytes" :: NullOrUndefined (Number) }
+  = QueryExecutionStatistics { "EngineExecutionTimeInMillis" :: Maybe (Number), "DataScannedInBytes" :: Maybe (Number) }
 ```
 
 <p>The amount of data scanned during the query execution and the amount of time that it took to execute.</p>
@@ -1187,7 +1187,7 @@ Constructs QueryExecutionStatistics from required parameters
 #### `newQueryExecutionStatistics'`
 
 ``` purescript
-newQueryExecutionStatistics' :: ({ "EngineExecutionTimeInMillis" :: NullOrUndefined (Number), "DataScannedInBytes" :: NullOrUndefined (Number) } -> { "EngineExecutionTimeInMillis" :: NullOrUndefined (Number), "DataScannedInBytes" :: NullOrUndefined (Number) }) -> QueryExecutionStatistics
+newQueryExecutionStatistics' :: ({ "EngineExecutionTimeInMillis" :: Maybe (Number), "DataScannedInBytes" :: Maybe (Number) } -> { "EngineExecutionTimeInMillis" :: Maybe (Number), "DataScannedInBytes" :: Maybe (Number) }) -> QueryExecutionStatistics
 ```
 
 Constructs QueryExecutionStatistics's fields from required parameters
@@ -1196,7 +1196,7 @@ Constructs QueryExecutionStatistics's fields from required parameters
 
 ``` purescript
 newtype QueryExecutionStatus
-  = QueryExecutionStatus { "State" :: NullOrUndefined (QueryExecutionState), "StateChangeReason" :: NullOrUndefined (String), "SubmissionDateTime" :: NullOrUndefined (Date), "CompletionDateTime" :: NullOrUndefined (Date) }
+  = QueryExecutionStatus { "State" :: Maybe (QueryExecutionState), "StateChangeReason" :: Maybe (String), "SubmissionDateTime" :: Maybe (Date), "CompletionDateTime" :: Maybe (Date) }
 ```
 
 <p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>
@@ -1221,7 +1221,7 @@ Constructs QueryExecutionStatus from required parameters
 #### `newQueryExecutionStatus'`
 
 ``` purescript
-newQueryExecutionStatus' :: ({ "State" :: NullOrUndefined (QueryExecutionState), "StateChangeReason" :: NullOrUndefined (String), "SubmissionDateTime" :: NullOrUndefined (Date), "CompletionDateTime" :: NullOrUndefined (Date) } -> { "State" :: NullOrUndefined (QueryExecutionState), "StateChangeReason" :: NullOrUndefined (String), "SubmissionDateTime" :: NullOrUndefined (Date), "CompletionDateTime" :: NullOrUndefined (Date) }) -> QueryExecutionStatus
+newQueryExecutionStatus' :: ({ "State" :: Maybe (QueryExecutionState), "StateChangeReason" :: Maybe (String), "SubmissionDateTime" :: Maybe (Date), "CompletionDateTime" :: Maybe (Date) } -> { "State" :: Maybe (QueryExecutionState), "StateChangeReason" :: Maybe (String), "SubmissionDateTime" :: Maybe (Date), "CompletionDateTime" :: Maybe (Date) }) -> QueryExecutionStatus
 ```
 
 Constructs QueryExecutionStatus's fields from required parameters
@@ -1246,7 +1246,7 @@ Encode QueryString
 
 ``` purescript
 newtype ResultConfiguration
-  = ResultConfiguration { "OutputLocation" :: String, "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration) }
+  = ResultConfiguration { "OutputLocation" :: String, "EncryptionConfiguration" :: Maybe (EncryptionConfiguration) }
 ```
 
 <p>The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.</p>
@@ -1271,7 +1271,7 @@ Constructs ResultConfiguration from required parameters
 #### `newResultConfiguration'`
 
 ``` purescript
-newResultConfiguration' :: String -> ({ "OutputLocation" :: String, "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration) } -> { "OutputLocation" :: String, "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration) }) -> ResultConfiguration
+newResultConfiguration' :: String -> ({ "OutputLocation" :: String, "EncryptionConfiguration" :: Maybe (EncryptionConfiguration) } -> { "OutputLocation" :: String, "EncryptionConfiguration" :: Maybe (EncryptionConfiguration) }) -> ResultConfiguration
 ```
 
 Constructs ResultConfiguration's fields from required parameters
@@ -1280,7 +1280,7 @@ Constructs ResultConfiguration's fields from required parameters
 
 ``` purescript
 newtype ResultSet
-  = ResultSet { "Rows" :: NullOrUndefined (RowList), "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata) }
+  = ResultSet { "Rows" :: Maybe (RowList), "ResultSetMetadata" :: Maybe (ResultSetMetadata) }
 ```
 
 <p>The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.</p>
@@ -1305,7 +1305,7 @@ Constructs ResultSet from required parameters
 #### `newResultSet'`
 
 ``` purescript
-newResultSet' :: ({ "Rows" :: NullOrUndefined (RowList), "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata) } -> { "Rows" :: NullOrUndefined (RowList), "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata) }) -> ResultSet
+newResultSet' :: ({ "Rows" :: Maybe (RowList), "ResultSetMetadata" :: Maybe (ResultSetMetadata) } -> { "Rows" :: Maybe (RowList), "ResultSetMetadata" :: Maybe (ResultSetMetadata) }) -> ResultSet
 ```
 
 Constructs ResultSet's fields from required parameters
@@ -1314,7 +1314,7 @@ Constructs ResultSet's fields from required parameters
 
 ``` purescript
 newtype ResultSetMetadata
-  = ResultSetMetadata { "ColumnInfo" :: NullOrUndefined (ColumnInfoList) }
+  = ResultSetMetadata { "ColumnInfo" :: Maybe (ColumnInfoList) }
 ```
 
 <p>The metadata that describes the column structure and data types of a table of query results.</p>
@@ -1339,7 +1339,7 @@ Constructs ResultSetMetadata from required parameters
 #### `newResultSetMetadata'`
 
 ``` purescript
-newResultSetMetadata' :: ({ "ColumnInfo" :: NullOrUndefined (ColumnInfoList) } -> { "ColumnInfo" :: NullOrUndefined (ColumnInfoList) }) -> ResultSetMetadata
+newResultSetMetadata' :: ({ "ColumnInfo" :: Maybe (ColumnInfoList) } -> { "ColumnInfo" :: Maybe (ColumnInfoList) }) -> ResultSetMetadata
 ```
 
 Constructs ResultSetMetadata's fields from required parameters
@@ -1348,7 +1348,7 @@ Constructs ResultSetMetadata's fields from required parameters
 
 ``` purescript
 newtype Row
-  = Row { "Data" :: NullOrUndefined (DatumList') }
+  = Row { "Data" :: Maybe (DatumList') }
 ```
 
 <p>The rows that comprise a query result table.</p>
@@ -1373,7 +1373,7 @@ Constructs Row from required parameters
 #### `newRow'`
 
 ``` purescript
-newRow' :: ({ "Data" :: NullOrUndefined (DatumList') } -> { "Data" :: NullOrUndefined (DatumList') }) -> Row
+newRow' :: ({ "Data" :: Maybe (DatumList') } -> { "Data" :: Maybe (DatumList') }) -> Row
 ```
 
 Constructs Row's fields from required parameters
@@ -1398,7 +1398,7 @@ Encode RowList
 
 ``` purescript
 newtype StartQueryExecutionInput
-  = StartQueryExecutionInput { "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration }
+  = StartQueryExecutionInput { "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration }
 ```
 
 ##### Instances
@@ -1421,7 +1421,7 @@ Constructs StartQueryExecutionInput from required parameters
 #### `newStartQueryExecutionInput'`
 
 ``` purescript
-newStartQueryExecutionInput' :: QueryString -> ResultConfiguration -> ({ "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration } -> { "QueryString" :: QueryString, "ClientRequestToken" :: NullOrUndefined (IdempotencyToken), "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration }) -> StartQueryExecutionInput
+newStartQueryExecutionInput' :: QueryString -> ResultConfiguration -> ({ "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration } -> { "QueryString" :: QueryString, "ClientRequestToken" :: Maybe (IdempotencyToken), "QueryExecutionContext" :: Maybe (QueryExecutionContext), "ResultConfiguration" :: ResultConfiguration }) -> StartQueryExecutionInput
 ```
 
 Constructs StartQueryExecutionInput's fields from required parameters
@@ -1430,7 +1430,7 @@ Constructs StartQueryExecutionInput's fields from required parameters
 
 ``` purescript
 newtype StartQueryExecutionOutput
-  = StartQueryExecutionOutput { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) }
+  = StartQueryExecutionOutput { "QueryExecutionId" :: Maybe (QueryExecutionId) }
 ```
 
 ##### Instances
@@ -1453,7 +1453,7 @@ Constructs StartQueryExecutionOutput from required parameters
 #### `newStartQueryExecutionOutput'`
 
 ``` purescript
-newStartQueryExecutionOutput' :: ({ "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) } -> { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) }) -> StartQueryExecutionOutput
+newStartQueryExecutionOutput' :: ({ "QueryExecutionId" :: Maybe (QueryExecutionId) } -> { "QueryExecutionId" :: Maybe (QueryExecutionId) }) -> StartQueryExecutionOutput
 ```
 
 Constructs StartQueryExecutionOutput's fields from required parameters
@@ -1542,7 +1542,7 @@ Encode Token
 
 ``` purescript
 newtype TooManyRequestsException
-  = TooManyRequestsException { "Message" :: NullOrUndefined (ErrorMessage), "Reason" :: NullOrUndefined (ThrottleReason) }
+  = TooManyRequestsException { "Message" :: Maybe (ErrorMessage), "Reason" :: Maybe (ThrottleReason) }
 ```
 
 <p>Indicates that the request was throttled.</p>
@@ -1567,7 +1567,7 @@ Constructs TooManyRequestsException from required parameters
 #### `newTooManyRequestsException'`
 
 ``` purescript
-newTooManyRequestsException' :: ({ "Message" :: NullOrUndefined (ErrorMessage), "Reason" :: NullOrUndefined (ThrottleReason) } -> { "Message" :: NullOrUndefined (ErrorMessage), "Reason" :: NullOrUndefined (ThrottleReason) }) -> TooManyRequestsException
+newTooManyRequestsException' :: ({ "Message" :: Maybe (ErrorMessage), "Reason" :: Maybe (ThrottleReason) } -> { "Message" :: Maybe (ErrorMessage), "Reason" :: Maybe (ThrottleReason) }) -> TooManyRequestsException
 ```
 
 Constructs TooManyRequestsException's fields from required parameters
@@ -1576,7 +1576,7 @@ Constructs TooManyRequestsException's fields from required parameters
 
 ``` purescript
 newtype UnprocessedNamedQueryId
-  = UnprocessedNamedQueryId { "NamedQueryId" :: NullOrUndefined (NamedQueryId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = UnprocessedNamedQueryId { "NamedQueryId" :: Maybe (NamedQueryId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Information about a named query ID that could not be processed.</p>
@@ -1601,7 +1601,7 @@ Constructs UnprocessedNamedQueryId from required parameters
 #### `newUnprocessedNamedQueryId'`
 
 ``` purescript
-newUnprocessedNamedQueryId' :: ({ "NamedQueryId" :: NullOrUndefined (NamedQueryId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "NamedQueryId" :: NullOrUndefined (NamedQueryId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> UnprocessedNamedQueryId
+newUnprocessedNamedQueryId' :: ({ "NamedQueryId" :: Maybe (NamedQueryId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "NamedQueryId" :: Maybe (NamedQueryId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> UnprocessedNamedQueryId
 ```
 
 Constructs UnprocessedNamedQueryId's fields from required parameters
@@ -1626,7 +1626,7 @@ Encode UnprocessedNamedQueryIdList
 
 ``` purescript
 newtype UnprocessedQueryExecutionId
-  = UnprocessedQueryExecutionId { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = UnprocessedQueryExecutionId { "QueryExecutionId" :: Maybe (QueryExecutionId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Describes a query execution that failed to process.</p>
@@ -1651,7 +1651,7 @@ Constructs UnprocessedQueryExecutionId from required parameters
 #### `newUnprocessedQueryExecutionId'`
 
 ``` purescript
-newUnprocessedQueryExecutionId' :: ({ "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> UnprocessedQueryExecutionId
+newUnprocessedQueryExecutionId' :: ({ "QueryExecutionId" :: Maybe (QueryExecutionId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "QueryExecutionId" :: Maybe (QueryExecutionId), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> UnprocessedQueryExecutionId
 ```
 
 Constructs UnprocessedQueryExecutionId's fields from required parameters

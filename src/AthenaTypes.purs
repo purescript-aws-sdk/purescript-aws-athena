@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -39,8 +38,8 @@ newBatchGetNamedQueryInput' _NamedQueryIds customize = (BatchGetNamedQueryInput 
 
 
 newtype BatchGetNamedQueryOutput = BatchGetNamedQueryOutput 
-  { "NamedQueries" :: NullOrUndefined (NamedQueryList)
-  , "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList)
+  { "NamedQueries" :: Maybe (NamedQueryList)
+  , "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList)
   }
 derive instance newtypeBatchGetNamedQueryOutput :: Newtype BatchGetNamedQueryOutput _
 derive instance repGenericBatchGetNamedQueryOutput :: Generic BatchGetNamedQueryOutput _
@@ -50,12 +49,12 @@ instance encodeBatchGetNamedQueryOutput :: Encode BatchGetNamedQueryOutput where
 
 -- | Constructs BatchGetNamedQueryOutput from required parameters
 newBatchGetNamedQueryOutput :: BatchGetNamedQueryOutput
-newBatchGetNamedQueryOutput  = BatchGetNamedQueryOutput { "NamedQueries": (NullOrUndefined Nothing), "UnprocessedNamedQueryIds": (NullOrUndefined Nothing) }
+newBatchGetNamedQueryOutput  = BatchGetNamedQueryOutput { "NamedQueries": Nothing, "UnprocessedNamedQueryIds": Nothing }
 
 -- | Constructs BatchGetNamedQueryOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchGetNamedQueryOutput' :: ( { "NamedQueries" :: NullOrUndefined (NamedQueryList) , "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList) } -> {"NamedQueries" :: NullOrUndefined (NamedQueryList) , "UnprocessedNamedQueryIds" :: NullOrUndefined (UnprocessedNamedQueryIdList) } ) -> BatchGetNamedQueryOutput
-newBatchGetNamedQueryOutput'  customize = (BatchGetNamedQueryOutput <<< customize) { "NamedQueries": (NullOrUndefined Nothing), "UnprocessedNamedQueryIds": (NullOrUndefined Nothing) }
+newBatchGetNamedQueryOutput' :: ( { "NamedQueries" :: Maybe (NamedQueryList) , "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList) } -> {"NamedQueries" :: Maybe (NamedQueryList) , "UnprocessedNamedQueryIds" :: Maybe (UnprocessedNamedQueryIdList) } ) -> BatchGetNamedQueryOutput
+newBatchGetNamedQueryOutput'  customize = (BatchGetNamedQueryOutput <<< customize) { "NamedQueries": Nothing, "UnprocessedNamedQueryIds": Nothing }
 
 
 
@@ -80,8 +79,8 @@ newBatchGetQueryExecutionInput' _QueryExecutionIds customize = (BatchGetQueryExe
 
 
 newtype BatchGetQueryExecutionOutput = BatchGetQueryExecutionOutput 
-  { "QueryExecutions" :: NullOrUndefined (QueryExecutionList)
-  , "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList)
+  { "QueryExecutions" :: Maybe (QueryExecutionList)
+  , "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList)
   }
 derive instance newtypeBatchGetQueryExecutionOutput :: Newtype BatchGetQueryExecutionOutput _
 derive instance repGenericBatchGetQueryExecutionOutput :: Generic BatchGetQueryExecutionOutput _
@@ -91,27 +90,27 @@ instance encodeBatchGetQueryExecutionOutput :: Encode BatchGetQueryExecutionOutp
 
 -- | Constructs BatchGetQueryExecutionOutput from required parameters
 newBatchGetQueryExecutionOutput :: BatchGetQueryExecutionOutput
-newBatchGetQueryExecutionOutput  = BatchGetQueryExecutionOutput { "QueryExecutions": (NullOrUndefined Nothing), "UnprocessedQueryExecutionIds": (NullOrUndefined Nothing) }
+newBatchGetQueryExecutionOutput  = BatchGetQueryExecutionOutput { "QueryExecutions": Nothing, "UnprocessedQueryExecutionIds": Nothing }
 
 -- | Constructs BatchGetQueryExecutionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchGetQueryExecutionOutput' :: ( { "QueryExecutions" :: NullOrUndefined (QueryExecutionList) , "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList) } -> {"QueryExecutions" :: NullOrUndefined (QueryExecutionList) , "UnprocessedQueryExecutionIds" :: NullOrUndefined (UnprocessedQueryExecutionIdList) } ) -> BatchGetQueryExecutionOutput
-newBatchGetQueryExecutionOutput'  customize = (BatchGetQueryExecutionOutput <<< customize) { "QueryExecutions": (NullOrUndefined Nothing), "UnprocessedQueryExecutionIds": (NullOrUndefined Nothing) }
+newBatchGetQueryExecutionOutput' :: ( { "QueryExecutions" :: Maybe (QueryExecutionList) , "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList) } -> {"QueryExecutions" :: Maybe (QueryExecutionList) , "UnprocessedQueryExecutionIds" :: Maybe (UnprocessedQueryExecutionIdList) } ) -> BatchGetQueryExecutionOutput
+newBatchGetQueryExecutionOutput'  customize = (BatchGetQueryExecutionOutput <<< customize) { "QueryExecutions": Nothing, "UnprocessedQueryExecutionIds": Nothing }
 
 
 
 -- | <p>Information about the columns in a query execution result.</p>
 newtype ColumnInfo = ColumnInfo 
-  { "CatalogName" :: NullOrUndefined (String)
-  , "SchemaName" :: NullOrUndefined (String)
-  , "TableName" :: NullOrUndefined (String)
+  { "CatalogName" :: Maybe (String)
+  , "SchemaName" :: Maybe (String)
+  , "TableName" :: Maybe (String)
   , "Name" :: (String)
-  , "Label" :: NullOrUndefined (String)
+  , "Label" :: Maybe (String)
   , "Type" :: (String)
-  , "Precision" :: NullOrUndefined (Int)
-  , "Scale" :: NullOrUndefined (Int)
-  , "Nullable" :: NullOrUndefined (ColumnNullable)
-  , "CaseSensitive" :: NullOrUndefined (Boolean)
+  , "Precision" :: Maybe (Int)
+  , "Scale" :: Maybe (Int)
+  , "Nullable" :: Maybe (ColumnNullable)
+  , "CaseSensitive" :: Maybe (Boolean)
   }
 derive instance newtypeColumnInfo :: Newtype ColumnInfo _
 derive instance repGenericColumnInfo :: Generic ColumnInfo _
@@ -121,12 +120,12 @@ instance encodeColumnInfo :: Encode ColumnInfo where encode = genericEncode opti
 
 -- | Constructs ColumnInfo from required parameters
 newColumnInfo :: String -> String -> ColumnInfo
-newColumnInfo _Name _Type = ColumnInfo { "Name": _Name, "Type": _Type, "CaseSensitive": (NullOrUndefined Nothing), "CatalogName": (NullOrUndefined Nothing), "Label": (NullOrUndefined Nothing), "Nullable": (NullOrUndefined Nothing), "Precision": (NullOrUndefined Nothing), "Scale": (NullOrUndefined Nothing), "SchemaName": (NullOrUndefined Nothing), "TableName": (NullOrUndefined Nothing) }
+newColumnInfo _Name _Type = ColumnInfo { "Name": _Name, "Type": _Type, "CaseSensitive": Nothing, "CatalogName": Nothing, "Label": Nothing, "Nullable": Nothing, "Precision": Nothing, "Scale": Nothing, "SchemaName": Nothing, "TableName": Nothing }
 
 -- | Constructs ColumnInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newColumnInfo' :: String -> String -> ( { "CatalogName" :: NullOrUndefined (String) , "SchemaName" :: NullOrUndefined (String) , "TableName" :: NullOrUndefined (String) , "Name" :: (String) , "Label" :: NullOrUndefined (String) , "Type" :: (String) , "Precision" :: NullOrUndefined (Int) , "Scale" :: NullOrUndefined (Int) , "Nullable" :: NullOrUndefined (ColumnNullable) , "CaseSensitive" :: NullOrUndefined (Boolean) } -> {"CatalogName" :: NullOrUndefined (String) , "SchemaName" :: NullOrUndefined (String) , "TableName" :: NullOrUndefined (String) , "Name" :: (String) , "Label" :: NullOrUndefined (String) , "Type" :: (String) , "Precision" :: NullOrUndefined (Int) , "Scale" :: NullOrUndefined (Int) , "Nullable" :: NullOrUndefined (ColumnNullable) , "CaseSensitive" :: NullOrUndefined (Boolean) } ) -> ColumnInfo
-newColumnInfo' _Name _Type customize = (ColumnInfo <<< customize) { "Name": _Name, "Type": _Type, "CaseSensitive": (NullOrUndefined Nothing), "CatalogName": (NullOrUndefined Nothing), "Label": (NullOrUndefined Nothing), "Nullable": (NullOrUndefined Nothing), "Precision": (NullOrUndefined Nothing), "Scale": (NullOrUndefined Nothing), "SchemaName": (NullOrUndefined Nothing), "TableName": (NullOrUndefined Nothing) }
+newColumnInfo' :: String -> String -> ( { "CatalogName" :: Maybe (String) , "SchemaName" :: Maybe (String) , "TableName" :: Maybe (String) , "Name" :: (String) , "Label" :: Maybe (String) , "Type" :: (String) , "Precision" :: Maybe (Int) , "Scale" :: Maybe (Int) , "Nullable" :: Maybe (ColumnNullable) , "CaseSensitive" :: Maybe (Boolean) } -> {"CatalogName" :: Maybe (String) , "SchemaName" :: Maybe (String) , "TableName" :: Maybe (String) , "Name" :: (String) , "Label" :: Maybe (String) , "Type" :: (String) , "Precision" :: Maybe (Int) , "Scale" :: Maybe (Int) , "Nullable" :: Maybe (ColumnNullable) , "CaseSensitive" :: Maybe (Boolean) } ) -> ColumnInfo
+newColumnInfo' _Name _Type customize = (ColumnInfo <<< customize) { "Name": _Name, "Type": _Type, "CaseSensitive": Nothing, "CatalogName": Nothing, "Label": Nothing, "Nullable": Nothing, "Precision": Nothing, "Scale": Nothing, "SchemaName": Nothing, "TableName": Nothing }
 
 
 
@@ -150,10 +149,10 @@ instance encodeColumnNullable :: Encode ColumnNullable where encode = genericEnc
 
 newtype CreateNamedQueryInput = CreateNamedQueryInput 
   { "Name" :: (NameString)
-  , "Description" :: NullOrUndefined (DescriptionString)
+  , "Description" :: Maybe (DescriptionString)
   , "Database" :: (DatabaseString)
   , "QueryString" :: (QueryString)
-  , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken)
+  , "ClientRequestToken" :: Maybe (IdempotencyToken)
   }
 derive instance newtypeCreateNamedQueryInput :: Newtype CreateNamedQueryInput _
 derive instance repGenericCreateNamedQueryInput :: Generic CreateNamedQueryInput _
@@ -163,17 +162,17 @@ instance encodeCreateNamedQueryInput :: Encode CreateNamedQueryInput where encod
 
 -- | Constructs CreateNamedQueryInput from required parameters
 newCreateNamedQueryInput :: DatabaseString -> NameString -> QueryString -> CreateNamedQueryInput
-newCreateNamedQueryInput _Database _Name _QueryString = CreateNamedQueryInput { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "ClientRequestToken": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreateNamedQueryInput _Database _Name _QueryString = CreateNamedQueryInput { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "ClientRequestToken": Nothing, "Description": Nothing }
 
 -- | Constructs CreateNamedQueryInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateNamedQueryInput' :: DatabaseString -> NameString -> QueryString -> ( { "Name" :: (NameString) , "Description" :: NullOrUndefined (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) } -> {"Name" :: (NameString) , "Description" :: NullOrUndefined (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) } ) -> CreateNamedQueryInput
-newCreateNamedQueryInput' _Database _Name _QueryString customize = (CreateNamedQueryInput <<< customize) { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "ClientRequestToken": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing) }
+newCreateNamedQueryInput' :: DatabaseString -> NameString -> QueryString -> ( { "Name" :: (NameString) , "Description" :: Maybe (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "ClientRequestToken" :: Maybe (IdempotencyToken) } -> {"Name" :: (NameString) , "Description" :: Maybe (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "ClientRequestToken" :: Maybe (IdempotencyToken) } ) -> CreateNamedQueryInput
+newCreateNamedQueryInput' _Database _Name _QueryString customize = (CreateNamedQueryInput <<< customize) { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "ClientRequestToken": Nothing, "Description": Nothing }
 
 
 
 newtype CreateNamedQueryOutput = CreateNamedQueryOutput 
-  { "NamedQueryId" :: NullOrUndefined (NamedQueryId)
+  { "NamedQueryId" :: Maybe (NamedQueryId)
   }
 derive instance newtypeCreateNamedQueryOutput :: Newtype CreateNamedQueryOutput _
 derive instance repGenericCreateNamedQueryOutput :: Generic CreateNamedQueryOutput _
@@ -183,12 +182,12 @@ instance encodeCreateNamedQueryOutput :: Encode CreateNamedQueryOutput where enc
 
 -- | Constructs CreateNamedQueryOutput from required parameters
 newCreateNamedQueryOutput :: CreateNamedQueryOutput
-newCreateNamedQueryOutput  = CreateNamedQueryOutput { "NamedQueryId": (NullOrUndefined Nothing) }
+newCreateNamedQueryOutput  = CreateNamedQueryOutput { "NamedQueryId": Nothing }
 
 -- | Constructs CreateNamedQueryOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateNamedQueryOutput' :: ( { "NamedQueryId" :: NullOrUndefined (NamedQueryId) } -> {"NamedQueryId" :: NullOrUndefined (NamedQueryId) } ) -> CreateNamedQueryOutput
-newCreateNamedQueryOutput'  customize = (CreateNamedQueryOutput <<< customize) { "NamedQueryId": (NullOrUndefined Nothing) }
+newCreateNamedQueryOutput' :: ( { "NamedQueryId" :: Maybe (NamedQueryId) } -> {"NamedQueryId" :: Maybe (NamedQueryId) } ) -> CreateNamedQueryOutput
+newCreateNamedQueryOutput'  customize = (CreateNamedQueryOutput <<< customize) { "NamedQueryId": Nothing }
 
 
 
@@ -212,7 +211,7 @@ instance encodeDate :: Encode Date where encode = genericEncode options
 
 -- | <p>A piece of data (a field in the table).</p>
 newtype Datum = Datum 
-  { "VarCharValue" :: NullOrUndefined (DatumString')
+  { "VarCharValue" :: Maybe (DatumString')
   }
 derive instance newtypeDatum :: Newtype Datum _
 derive instance repGenericDatum :: Generic Datum _
@@ -222,12 +221,12 @@ instance encodeDatum :: Encode Datum where encode = genericEncode options
 
 -- | Constructs Datum from required parameters
 newDatum :: Datum
-newDatum  = Datum { "VarCharValue": (NullOrUndefined Nothing) }
+newDatum  = Datum { "VarCharValue": Nothing }
 
 -- | Constructs Datum's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDatum' :: ( { "VarCharValue" :: NullOrUndefined (DatumString') } -> {"VarCharValue" :: NullOrUndefined (DatumString') } ) -> Datum
-newDatum'  customize = (Datum <<< customize) { "VarCharValue": (NullOrUndefined Nothing) }
+newDatum' :: ( { "VarCharValue" :: Maybe (DatumString') } -> {"VarCharValue" :: Maybe (DatumString') } ) -> Datum
+newDatum'  customize = (Datum <<< customize) { "VarCharValue": Nothing }
 
 
 
@@ -272,7 +271,7 @@ instance encodeDescriptionString :: Encode DescriptionString where encode = gene
 -- | <p>If query results are encrypted in Amazon S3, indicates the Amazon S3 encryption option used.</p>
 newtype EncryptionConfiguration = EncryptionConfiguration 
   { "EncryptionOption" :: (EncryptionOption)
-  , "KmsKey" :: NullOrUndefined (String)
+  , "KmsKey" :: Maybe (String)
   }
 derive instance newtypeEncryptionConfiguration :: Newtype EncryptionConfiguration _
 derive instance repGenericEncryptionConfiguration :: Generic EncryptionConfiguration _
@@ -282,12 +281,12 @@ instance encodeEncryptionConfiguration :: Encode EncryptionConfiguration where e
 
 -- | Constructs EncryptionConfiguration from required parameters
 newEncryptionConfiguration :: EncryptionOption -> EncryptionConfiguration
-newEncryptionConfiguration _EncryptionOption = EncryptionConfiguration { "EncryptionOption": _EncryptionOption, "KmsKey": (NullOrUndefined Nothing) }
+newEncryptionConfiguration _EncryptionOption = EncryptionConfiguration { "EncryptionOption": _EncryptionOption, "KmsKey": Nothing }
 
 -- | Constructs EncryptionConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEncryptionConfiguration' :: EncryptionOption -> ( { "EncryptionOption" :: (EncryptionOption) , "KmsKey" :: NullOrUndefined (String) } -> {"EncryptionOption" :: (EncryptionOption) , "KmsKey" :: NullOrUndefined (String) } ) -> EncryptionConfiguration
-newEncryptionConfiguration' _EncryptionOption customize = (EncryptionConfiguration <<< customize) { "EncryptionOption": _EncryptionOption, "KmsKey": (NullOrUndefined Nothing) }
+newEncryptionConfiguration' :: EncryptionOption -> ( { "EncryptionOption" :: (EncryptionOption) , "KmsKey" :: Maybe (String) } -> {"EncryptionOption" :: (EncryptionOption) , "KmsKey" :: Maybe (String) } ) -> EncryptionConfiguration
+newEncryptionConfiguration' _EncryptionOption customize = (EncryptionConfiguration <<< customize) { "EncryptionOption": _EncryptionOption, "KmsKey": Nothing }
 
 
 
@@ -339,7 +338,7 @@ newGetNamedQueryInput' _NamedQueryId customize = (GetNamedQueryInput <<< customi
 
 
 newtype GetNamedQueryOutput = GetNamedQueryOutput 
-  { "NamedQuery" :: NullOrUndefined (NamedQuery)
+  { "NamedQuery" :: Maybe (NamedQuery)
   }
 derive instance newtypeGetNamedQueryOutput :: Newtype GetNamedQueryOutput _
 derive instance repGenericGetNamedQueryOutput :: Generic GetNamedQueryOutput _
@@ -349,12 +348,12 @@ instance encodeGetNamedQueryOutput :: Encode GetNamedQueryOutput where encode = 
 
 -- | Constructs GetNamedQueryOutput from required parameters
 newGetNamedQueryOutput :: GetNamedQueryOutput
-newGetNamedQueryOutput  = GetNamedQueryOutput { "NamedQuery": (NullOrUndefined Nothing) }
+newGetNamedQueryOutput  = GetNamedQueryOutput { "NamedQuery": Nothing }
 
 -- | Constructs GetNamedQueryOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetNamedQueryOutput' :: ( { "NamedQuery" :: NullOrUndefined (NamedQuery) } -> {"NamedQuery" :: NullOrUndefined (NamedQuery) } ) -> GetNamedQueryOutput
-newGetNamedQueryOutput'  customize = (GetNamedQueryOutput <<< customize) { "NamedQuery": (NullOrUndefined Nothing) }
+newGetNamedQueryOutput' :: ( { "NamedQuery" :: Maybe (NamedQuery) } -> {"NamedQuery" :: Maybe (NamedQuery) } ) -> GetNamedQueryOutput
+newGetNamedQueryOutput'  customize = (GetNamedQueryOutput <<< customize) { "NamedQuery": Nothing }
 
 
 
@@ -379,7 +378,7 @@ newGetQueryExecutionInput' _QueryExecutionId customize = (GetQueryExecutionInput
 
 
 newtype GetQueryExecutionOutput = GetQueryExecutionOutput 
-  { "QueryExecution" :: NullOrUndefined (QueryExecution)
+  { "QueryExecution" :: Maybe (QueryExecution)
   }
 derive instance newtypeGetQueryExecutionOutput :: Newtype GetQueryExecutionOutput _
 derive instance repGenericGetQueryExecutionOutput :: Generic GetQueryExecutionOutput _
@@ -389,19 +388,19 @@ instance encodeGetQueryExecutionOutput :: Encode GetQueryExecutionOutput where e
 
 -- | Constructs GetQueryExecutionOutput from required parameters
 newGetQueryExecutionOutput :: GetQueryExecutionOutput
-newGetQueryExecutionOutput  = GetQueryExecutionOutput { "QueryExecution": (NullOrUndefined Nothing) }
+newGetQueryExecutionOutput  = GetQueryExecutionOutput { "QueryExecution": Nothing }
 
 -- | Constructs GetQueryExecutionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetQueryExecutionOutput' :: ( { "QueryExecution" :: NullOrUndefined (QueryExecution) } -> {"QueryExecution" :: NullOrUndefined (QueryExecution) } ) -> GetQueryExecutionOutput
-newGetQueryExecutionOutput'  customize = (GetQueryExecutionOutput <<< customize) { "QueryExecution": (NullOrUndefined Nothing) }
+newGetQueryExecutionOutput' :: ( { "QueryExecution" :: Maybe (QueryExecution) } -> {"QueryExecution" :: Maybe (QueryExecution) } ) -> GetQueryExecutionOutput
+newGetQueryExecutionOutput'  customize = (GetQueryExecutionOutput <<< customize) { "QueryExecution": Nothing }
 
 
 
 newtype GetQueryResultsInput = GetQueryResultsInput 
   { "QueryExecutionId" :: (QueryExecutionId)
-  , "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxQueryResults)
+  , "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxQueryResults)
   }
 derive instance newtypeGetQueryResultsInput :: Newtype GetQueryResultsInput _
 derive instance repGenericGetQueryResultsInput :: Generic GetQueryResultsInput _
@@ -411,18 +410,18 @@ instance encodeGetQueryResultsInput :: Encode GetQueryResultsInput where encode 
 
 -- | Constructs GetQueryResultsInput from required parameters
 newGetQueryResultsInput :: QueryExecutionId -> GetQueryResultsInput
-newGetQueryResultsInput _QueryExecutionId = GetQueryResultsInput { "QueryExecutionId": _QueryExecutionId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newGetQueryResultsInput _QueryExecutionId = GetQueryResultsInput { "QueryExecutionId": _QueryExecutionId, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs GetQueryResultsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetQueryResultsInput' :: QueryExecutionId -> ( { "QueryExecutionId" :: (QueryExecutionId) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxQueryResults) } -> {"QueryExecutionId" :: (QueryExecutionId) , "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxQueryResults) } ) -> GetQueryResultsInput
-newGetQueryResultsInput' _QueryExecutionId customize = (GetQueryResultsInput <<< customize) { "QueryExecutionId": _QueryExecutionId, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newGetQueryResultsInput' :: QueryExecutionId -> ( { "QueryExecutionId" :: (QueryExecutionId) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxQueryResults) } -> {"QueryExecutionId" :: (QueryExecutionId) , "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxQueryResults) } ) -> GetQueryResultsInput
+newGetQueryResultsInput' _QueryExecutionId customize = (GetQueryResultsInput <<< customize) { "QueryExecutionId": _QueryExecutionId, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype GetQueryResultsOutput = GetQueryResultsOutput 
-  { "ResultSet" :: NullOrUndefined (ResultSet)
-  , "NextToken" :: NullOrUndefined (Token)
+  { "ResultSet" :: Maybe (ResultSet)
+  , "NextToken" :: Maybe (Token)
   }
 derive instance newtypeGetQueryResultsOutput :: Newtype GetQueryResultsOutput _
 derive instance repGenericGetQueryResultsOutput :: Generic GetQueryResultsOutput _
@@ -432,12 +431,12 @@ instance encodeGetQueryResultsOutput :: Encode GetQueryResultsOutput where encod
 
 -- | Constructs GetQueryResultsOutput from required parameters
 newGetQueryResultsOutput :: GetQueryResultsOutput
-newGetQueryResultsOutput  = GetQueryResultsOutput { "NextToken": (NullOrUndefined Nothing), "ResultSet": (NullOrUndefined Nothing) }
+newGetQueryResultsOutput  = GetQueryResultsOutput { "NextToken": Nothing, "ResultSet": Nothing }
 
 -- | Constructs GetQueryResultsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetQueryResultsOutput' :: ( { "ResultSet" :: NullOrUndefined (ResultSet) , "NextToken" :: NullOrUndefined (Token) } -> {"ResultSet" :: NullOrUndefined (ResultSet) , "NextToken" :: NullOrUndefined (Token) } ) -> GetQueryResultsOutput
-newGetQueryResultsOutput'  customize = (GetQueryResultsOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "ResultSet": (NullOrUndefined Nothing) }
+newGetQueryResultsOutput' :: ( { "ResultSet" :: Maybe (ResultSet) , "NextToken" :: Maybe (Token) } -> {"ResultSet" :: Maybe (ResultSet) , "NextToken" :: Maybe (Token) } ) -> GetQueryResultsOutput
+newGetQueryResultsOutput'  customize = (GetQueryResultsOutput <<< customize) { "NextToken": Nothing, "ResultSet": Nothing }
 
 
 
@@ -452,7 +451,7 @@ instance encodeIdempotencyToken :: Encode IdempotencyToken where encode = generi
 
 -- | <p>Indicates a platform issue, which may be due to a transient condition or outage.</p>
 newtype InternalServerException = InternalServerException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerException :: Newtype InternalServerException _
 derive instance repGenericInternalServerException :: Generic InternalServerException _
@@ -462,19 +461,19 @@ instance encodeInternalServerException :: Encode InternalServerException where e
 
 -- | Constructs InternalServerException from required parameters
 newInternalServerException :: InternalServerException
-newInternalServerException  = InternalServerException { "Message": (NullOrUndefined Nothing) }
+newInternalServerException  = InternalServerException { "Message": Nothing }
 
 -- | Constructs InternalServerException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerException
-newInternalServerException'  customize = (InternalServerException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServerException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServerException
+newInternalServerException'  customize = (InternalServerException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>Indicates that something is wrong with the input to the request. For example, a required parameter may be missing or out of range.</p>
 newtype InvalidRequestException = InvalidRequestException 
-  { "AthenaErrorCode" :: NullOrUndefined (ErrorCode)
-  , "Message" :: NullOrUndefined (ErrorMessage)
+  { "AthenaErrorCode" :: Maybe (ErrorCode)
+  , "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidRequestException :: Newtype InvalidRequestException _
 derive instance repGenericInvalidRequestException :: Generic InvalidRequestException _
@@ -484,18 +483,18 @@ instance encodeInvalidRequestException :: Encode InvalidRequestException where e
 
 -- | Constructs InvalidRequestException from required parameters
 newInvalidRequestException :: InvalidRequestException
-newInvalidRequestException  = InvalidRequestException { "AthenaErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException  = InvalidRequestException { "AthenaErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs InvalidRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequestException' :: ( { "AthenaErrorCode" :: NullOrUndefined (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } -> {"AthenaErrorCode" :: NullOrUndefined (ErrorCode) , "Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidRequestException
-newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "AthenaErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException' :: ( { "AthenaErrorCode" :: Maybe (ErrorCode) , "Message" :: Maybe (ErrorMessage) } -> {"AthenaErrorCode" :: Maybe (ErrorCode) , "Message" :: Maybe (ErrorMessage) } ) -> InvalidRequestException
+newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "AthenaErrorCode": Nothing, "Message": Nothing }
 
 
 
 newtype ListNamedQueriesInput = ListNamedQueriesInput 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount)
+  { "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxNamedQueriesCount)
   }
 derive instance newtypeListNamedQueriesInput :: Newtype ListNamedQueriesInput _
 derive instance repGenericListNamedQueriesInput :: Generic ListNamedQueriesInput _
@@ -505,18 +504,18 @@ instance encodeListNamedQueriesInput :: Encode ListNamedQueriesInput where encod
 
 -- | Constructs ListNamedQueriesInput from required parameters
 newListNamedQueriesInput :: ListNamedQueriesInput
-newListNamedQueriesInput  = ListNamedQueriesInput { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamedQueriesInput  = ListNamedQueriesInput { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListNamedQueriesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListNamedQueriesInput' :: ( { "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount) } -> {"NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxNamedQueriesCount) } ) -> ListNamedQueriesInput
-newListNamedQueriesInput'  customize = (ListNamedQueriesInput <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamedQueriesInput' :: ( { "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxNamedQueriesCount) } -> {"NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxNamedQueriesCount) } ) -> ListNamedQueriesInput
+newListNamedQueriesInput'  customize = (ListNamedQueriesInput <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListNamedQueriesOutput = ListNamedQueriesOutput 
-  { "NamedQueryIds" :: NullOrUndefined (NamedQueryIdList)
-  , "NextToken" :: NullOrUndefined (Token)
+  { "NamedQueryIds" :: Maybe (NamedQueryIdList)
+  , "NextToken" :: Maybe (Token)
   }
 derive instance newtypeListNamedQueriesOutput :: Newtype ListNamedQueriesOutput _
 derive instance repGenericListNamedQueriesOutput :: Generic ListNamedQueriesOutput _
@@ -526,18 +525,18 @@ instance encodeListNamedQueriesOutput :: Encode ListNamedQueriesOutput where enc
 
 -- | Constructs ListNamedQueriesOutput from required parameters
 newListNamedQueriesOutput :: ListNamedQueriesOutput
-newListNamedQueriesOutput  = ListNamedQueriesOutput { "NamedQueryIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamedQueriesOutput  = ListNamedQueriesOutput { "NamedQueryIds": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListNamedQueriesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListNamedQueriesOutput' :: ( { "NamedQueryIds" :: NullOrUndefined (NamedQueryIdList) , "NextToken" :: NullOrUndefined (Token) } -> {"NamedQueryIds" :: NullOrUndefined (NamedQueryIdList) , "NextToken" :: NullOrUndefined (Token) } ) -> ListNamedQueriesOutput
-newListNamedQueriesOutput'  customize = (ListNamedQueriesOutput <<< customize) { "NamedQueryIds": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListNamedQueriesOutput' :: ( { "NamedQueryIds" :: Maybe (NamedQueryIdList) , "NextToken" :: Maybe (Token) } -> {"NamedQueryIds" :: Maybe (NamedQueryIdList) , "NextToken" :: Maybe (Token) } ) -> ListNamedQueriesOutput
+newListNamedQueriesOutput'  customize = (ListNamedQueriesOutput <<< customize) { "NamedQueryIds": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListQueryExecutionsInput = ListQueryExecutionsInput 
-  { "NextToken" :: NullOrUndefined (Token)
-  , "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount)
+  { "NextToken" :: Maybe (Token)
+  , "MaxResults" :: Maybe (MaxQueryExecutionsCount)
   }
 derive instance newtypeListQueryExecutionsInput :: Newtype ListQueryExecutionsInput _
 derive instance repGenericListQueryExecutionsInput :: Generic ListQueryExecutionsInput _
@@ -547,18 +546,18 @@ instance encodeListQueryExecutionsInput :: Encode ListQueryExecutionsInput where
 
 -- | Constructs ListQueryExecutionsInput from required parameters
 newListQueryExecutionsInput :: ListQueryExecutionsInput
-newListQueryExecutionsInput  = ListQueryExecutionsInput { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListQueryExecutionsInput  = ListQueryExecutionsInput { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListQueryExecutionsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQueryExecutionsInput' :: ( { "NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount) } -> {"NextToken" :: NullOrUndefined (Token) , "MaxResults" :: NullOrUndefined (MaxQueryExecutionsCount) } ) -> ListQueryExecutionsInput
-newListQueryExecutionsInput'  customize = (ListQueryExecutionsInput <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListQueryExecutionsInput' :: ( { "NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxQueryExecutionsCount) } -> {"NextToken" :: Maybe (Token) , "MaxResults" :: Maybe (MaxQueryExecutionsCount) } ) -> ListQueryExecutionsInput
+newListQueryExecutionsInput'  customize = (ListQueryExecutionsInput <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListQueryExecutionsOutput = ListQueryExecutionsOutput 
-  { "QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList)
-  , "NextToken" :: NullOrUndefined (Token)
+  { "QueryExecutionIds" :: Maybe (QueryExecutionIdList)
+  , "NextToken" :: Maybe (Token)
   }
 derive instance newtypeListQueryExecutionsOutput :: Newtype ListQueryExecutionsOutput _
 derive instance repGenericListQueryExecutionsOutput :: Generic ListQueryExecutionsOutput _
@@ -568,12 +567,12 @@ instance encodeListQueryExecutionsOutput :: Encode ListQueryExecutionsOutput whe
 
 -- | Constructs ListQueryExecutionsOutput from required parameters
 newListQueryExecutionsOutput :: ListQueryExecutionsOutput
-newListQueryExecutionsOutput  = ListQueryExecutionsOutput { "NextToken": (NullOrUndefined Nothing), "QueryExecutionIds": (NullOrUndefined Nothing) }
+newListQueryExecutionsOutput  = ListQueryExecutionsOutput { "NextToken": Nothing, "QueryExecutionIds": Nothing }
 
 -- | Constructs ListQueryExecutionsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListQueryExecutionsOutput' :: ( { "QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList) , "NextToken" :: NullOrUndefined (Token) } -> {"QueryExecutionIds" :: NullOrUndefined (QueryExecutionIdList) , "NextToken" :: NullOrUndefined (Token) } ) -> ListQueryExecutionsOutput
-newListQueryExecutionsOutput'  customize = (ListQueryExecutionsOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "QueryExecutionIds": (NullOrUndefined Nothing) }
+newListQueryExecutionsOutput' :: ( { "QueryExecutionIds" :: Maybe (QueryExecutionIdList) , "NextToken" :: Maybe (Token) } -> {"QueryExecutionIds" :: Maybe (QueryExecutionIdList) , "NextToken" :: Maybe (Token) } ) -> ListQueryExecutionsOutput
+newListQueryExecutionsOutput'  customize = (ListQueryExecutionsOutput <<< customize) { "NextToken": Nothing, "QueryExecutionIds": Nothing }
 
 
 
@@ -616,10 +615,10 @@ instance encodeNameString :: Encode NameString where encode = genericEncode opti
 -- | <p>A query, where <code>QueryString</code> is the SQL query statements that comprise the query.</p>
 newtype NamedQuery = NamedQuery 
   { "Name" :: (NameString)
-  , "Description" :: NullOrUndefined (DescriptionString)
+  , "Description" :: Maybe (DescriptionString)
   , "Database" :: (DatabaseString)
   , "QueryString" :: (QueryString)
-  , "NamedQueryId" :: NullOrUndefined (NamedQueryId)
+  , "NamedQueryId" :: Maybe (NamedQueryId)
   }
 derive instance newtypeNamedQuery :: Newtype NamedQuery _
 derive instance repGenericNamedQuery :: Generic NamedQuery _
@@ -629,12 +628,12 @@ instance encodeNamedQuery :: Encode NamedQuery where encode = genericEncode opti
 
 -- | Constructs NamedQuery from required parameters
 newNamedQuery :: DatabaseString -> NameString -> QueryString -> NamedQuery
-newNamedQuery _Database _Name _QueryString = NamedQuery { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "Description": (NullOrUndefined Nothing), "NamedQueryId": (NullOrUndefined Nothing) }
+newNamedQuery _Database _Name _QueryString = NamedQuery { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "Description": Nothing, "NamedQueryId": Nothing }
 
 -- | Constructs NamedQuery's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNamedQuery' :: DatabaseString -> NameString -> QueryString -> ( { "Name" :: (NameString) , "Description" :: NullOrUndefined (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "NamedQueryId" :: NullOrUndefined (NamedQueryId) } -> {"Name" :: (NameString) , "Description" :: NullOrUndefined (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "NamedQueryId" :: NullOrUndefined (NamedQueryId) } ) -> NamedQuery
-newNamedQuery' _Database _Name _QueryString customize = (NamedQuery <<< customize) { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "Description": (NullOrUndefined Nothing), "NamedQueryId": (NullOrUndefined Nothing) }
+newNamedQuery' :: DatabaseString -> NameString -> QueryString -> ( { "Name" :: (NameString) , "Description" :: Maybe (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "NamedQueryId" :: Maybe (NamedQueryId) } -> {"Name" :: (NameString) , "Description" :: Maybe (DescriptionString) , "Database" :: (DatabaseString) , "QueryString" :: (QueryString) , "NamedQueryId" :: Maybe (NamedQueryId) } ) -> NamedQuery
+newNamedQuery' _Database _Name _QueryString customize = (NamedQuery <<< customize) { "Database": _Database, "Name": _Name, "QueryString": _QueryString, "Description": Nothing, "NamedQueryId": Nothing }
 
 
 
@@ -667,12 +666,12 @@ instance encodeNamedQueryList :: Encode NamedQueryList where encode = genericEnc
 
 -- | <p>Information about a single instance of a query execution.</p>
 newtype QueryExecution = QueryExecution 
-  { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId)
-  , "Query" :: NullOrUndefined (QueryString)
-  , "ResultConfiguration" :: NullOrUndefined (ResultConfiguration)
-  , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext)
-  , "Status" :: NullOrUndefined (QueryExecutionStatus)
-  , "Statistics" :: NullOrUndefined (QueryExecutionStatistics)
+  { "QueryExecutionId" :: Maybe (QueryExecutionId)
+  , "Query" :: Maybe (QueryString)
+  , "ResultConfiguration" :: Maybe (ResultConfiguration)
+  , "QueryExecutionContext" :: Maybe (QueryExecutionContext)
+  , "Status" :: Maybe (QueryExecutionStatus)
+  , "Statistics" :: Maybe (QueryExecutionStatistics)
   }
 derive instance newtypeQueryExecution :: Newtype QueryExecution _
 derive instance repGenericQueryExecution :: Generic QueryExecution _
@@ -682,18 +681,18 @@ instance encodeQueryExecution :: Encode QueryExecution where encode = genericEnc
 
 -- | Constructs QueryExecution from required parameters
 newQueryExecution :: QueryExecution
-newQueryExecution  = QueryExecution { "Query": (NullOrUndefined Nothing), "QueryExecutionContext": (NullOrUndefined Nothing), "QueryExecutionId": (NullOrUndefined Nothing), "ResultConfiguration": (NullOrUndefined Nothing), "Statistics": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newQueryExecution  = QueryExecution { "Query": Nothing, "QueryExecutionContext": Nothing, "QueryExecutionId": Nothing, "ResultConfiguration": Nothing, "Statistics": Nothing, "Status": Nothing }
 
 -- | Constructs QueryExecution's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryExecution' :: ( { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) , "Query" :: NullOrUndefined (QueryString) , "ResultConfiguration" :: NullOrUndefined (ResultConfiguration) , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext) , "Status" :: NullOrUndefined (QueryExecutionStatus) , "Statistics" :: NullOrUndefined (QueryExecutionStatistics) } -> {"QueryExecutionId" :: NullOrUndefined (QueryExecutionId) , "Query" :: NullOrUndefined (QueryString) , "ResultConfiguration" :: NullOrUndefined (ResultConfiguration) , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext) , "Status" :: NullOrUndefined (QueryExecutionStatus) , "Statistics" :: NullOrUndefined (QueryExecutionStatistics) } ) -> QueryExecution
-newQueryExecution'  customize = (QueryExecution <<< customize) { "Query": (NullOrUndefined Nothing), "QueryExecutionContext": (NullOrUndefined Nothing), "QueryExecutionId": (NullOrUndefined Nothing), "ResultConfiguration": (NullOrUndefined Nothing), "Statistics": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing) }
+newQueryExecution' :: ( { "QueryExecutionId" :: Maybe (QueryExecutionId) , "Query" :: Maybe (QueryString) , "ResultConfiguration" :: Maybe (ResultConfiguration) , "QueryExecutionContext" :: Maybe (QueryExecutionContext) , "Status" :: Maybe (QueryExecutionStatus) , "Statistics" :: Maybe (QueryExecutionStatistics) } -> {"QueryExecutionId" :: Maybe (QueryExecutionId) , "Query" :: Maybe (QueryString) , "ResultConfiguration" :: Maybe (ResultConfiguration) , "QueryExecutionContext" :: Maybe (QueryExecutionContext) , "Status" :: Maybe (QueryExecutionStatus) , "Statistics" :: Maybe (QueryExecutionStatistics) } ) -> QueryExecution
+newQueryExecution'  customize = (QueryExecution <<< customize) { "Query": Nothing, "QueryExecutionContext": Nothing, "QueryExecutionId": Nothing, "ResultConfiguration": Nothing, "Statistics": Nothing, "Status": Nothing }
 
 
 
 -- | <p>The database in which the query execution occurs.</p>
 newtype QueryExecutionContext = QueryExecutionContext 
-  { "Database" :: NullOrUndefined (DatabaseString)
+  { "Database" :: Maybe (DatabaseString)
   }
 derive instance newtypeQueryExecutionContext :: Newtype QueryExecutionContext _
 derive instance repGenericQueryExecutionContext :: Generic QueryExecutionContext _
@@ -703,12 +702,12 @@ instance encodeQueryExecutionContext :: Encode QueryExecutionContext where encod
 
 -- | Constructs QueryExecutionContext from required parameters
 newQueryExecutionContext :: QueryExecutionContext
-newQueryExecutionContext  = QueryExecutionContext { "Database": (NullOrUndefined Nothing) }
+newQueryExecutionContext  = QueryExecutionContext { "Database": Nothing }
 
 -- | Constructs QueryExecutionContext's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryExecutionContext' :: ( { "Database" :: NullOrUndefined (DatabaseString) } -> {"Database" :: NullOrUndefined (DatabaseString) } ) -> QueryExecutionContext
-newQueryExecutionContext'  customize = (QueryExecutionContext <<< customize) { "Database": (NullOrUndefined Nothing) }
+newQueryExecutionContext' :: ( { "Database" :: Maybe (DatabaseString) } -> {"Database" :: Maybe (DatabaseString) } ) -> QueryExecutionContext
+newQueryExecutionContext'  customize = (QueryExecutionContext <<< customize) { "Database": Nothing }
 
 
 
@@ -750,8 +749,8 @@ instance encodeQueryExecutionState :: Encode QueryExecutionState where encode = 
 
 -- | <p>The amount of data scanned during the query execution and the amount of time that it took to execute.</p>
 newtype QueryExecutionStatistics = QueryExecutionStatistics 
-  { "EngineExecutionTimeInMillis" :: NullOrUndefined (Number)
-  , "DataScannedInBytes" :: NullOrUndefined (Number)
+  { "EngineExecutionTimeInMillis" :: Maybe (Number)
+  , "DataScannedInBytes" :: Maybe (Number)
   }
 derive instance newtypeQueryExecutionStatistics :: Newtype QueryExecutionStatistics _
 derive instance repGenericQueryExecutionStatistics :: Generic QueryExecutionStatistics _
@@ -761,21 +760,21 @@ instance encodeQueryExecutionStatistics :: Encode QueryExecutionStatistics where
 
 -- | Constructs QueryExecutionStatistics from required parameters
 newQueryExecutionStatistics :: QueryExecutionStatistics
-newQueryExecutionStatistics  = QueryExecutionStatistics { "DataScannedInBytes": (NullOrUndefined Nothing), "EngineExecutionTimeInMillis": (NullOrUndefined Nothing) }
+newQueryExecutionStatistics  = QueryExecutionStatistics { "DataScannedInBytes": Nothing, "EngineExecutionTimeInMillis": Nothing }
 
 -- | Constructs QueryExecutionStatistics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryExecutionStatistics' :: ( { "EngineExecutionTimeInMillis" :: NullOrUndefined (Number) , "DataScannedInBytes" :: NullOrUndefined (Number) } -> {"EngineExecutionTimeInMillis" :: NullOrUndefined (Number) , "DataScannedInBytes" :: NullOrUndefined (Number) } ) -> QueryExecutionStatistics
-newQueryExecutionStatistics'  customize = (QueryExecutionStatistics <<< customize) { "DataScannedInBytes": (NullOrUndefined Nothing), "EngineExecutionTimeInMillis": (NullOrUndefined Nothing) }
+newQueryExecutionStatistics' :: ( { "EngineExecutionTimeInMillis" :: Maybe (Number) , "DataScannedInBytes" :: Maybe (Number) } -> {"EngineExecutionTimeInMillis" :: Maybe (Number) , "DataScannedInBytes" :: Maybe (Number) } ) -> QueryExecutionStatistics
+newQueryExecutionStatistics'  customize = (QueryExecutionStatistics <<< customize) { "DataScannedInBytes": Nothing, "EngineExecutionTimeInMillis": Nothing }
 
 
 
 -- | <p>The completion date, current state, submission time, and state change reason (if applicable) for the query execution.</p>
 newtype QueryExecutionStatus = QueryExecutionStatus 
-  { "State" :: NullOrUndefined (QueryExecutionState)
-  , "StateChangeReason" :: NullOrUndefined (String)
-  , "SubmissionDateTime" :: NullOrUndefined (Date)
-  , "CompletionDateTime" :: NullOrUndefined (Date)
+  { "State" :: Maybe (QueryExecutionState)
+  , "StateChangeReason" :: Maybe (String)
+  , "SubmissionDateTime" :: Maybe (Date)
+  , "CompletionDateTime" :: Maybe (Date)
   }
 derive instance newtypeQueryExecutionStatus :: Newtype QueryExecutionStatus _
 derive instance repGenericQueryExecutionStatus :: Generic QueryExecutionStatus _
@@ -785,12 +784,12 @@ instance encodeQueryExecutionStatus :: Encode QueryExecutionStatus where encode 
 
 -- | Constructs QueryExecutionStatus from required parameters
 newQueryExecutionStatus :: QueryExecutionStatus
-newQueryExecutionStatus  = QueryExecutionStatus { "CompletionDateTime": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "SubmissionDateTime": (NullOrUndefined Nothing) }
+newQueryExecutionStatus  = QueryExecutionStatus { "CompletionDateTime": Nothing, "State": Nothing, "StateChangeReason": Nothing, "SubmissionDateTime": Nothing }
 
 -- | Constructs QueryExecutionStatus's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newQueryExecutionStatus' :: ( { "State" :: NullOrUndefined (QueryExecutionState) , "StateChangeReason" :: NullOrUndefined (String) , "SubmissionDateTime" :: NullOrUndefined (Date) , "CompletionDateTime" :: NullOrUndefined (Date) } -> {"State" :: NullOrUndefined (QueryExecutionState) , "StateChangeReason" :: NullOrUndefined (String) , "SubmissionDateTime" :: NullOrUndefined (Date) , "CompletionDateTime" :: NullOrUndefined (Date) } ) -> QueryExecutionStatus
-newQueryExecutionStatus'  customize = (QueryExecutionStatus <<< customize) { "CompletionDateTime": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "StateChangeReason": (NullOrUndefined Nothing), "SubmissionDateTime": (NullOrUndefined Nothing) }
+newQueryExecutionStatus' :: ( { "State" :: Maybe (QueryExecutionState) , "StateChangeReason" :: Maybe (String) , "SubmissionDateTime" :: Maybe (Date) , "CompletionDateTime" :: Maybe (Date) } -> {"State" :: Maybe (QueryExecutionState) , "StateChangeReason" :: Maybe (String) , "SubmissionDateTime" :: Maybe (Date) , "CompletionDateTime" :: Maybe (Date) } ) -> QueryExecutionStatus
+newQueryExecutionStatus'  customize = (QueryExecutionStatus <<< customize) { "CompletionDateTime": Nothing, "State": Nothing, "StateChangeReason": Nothing, "SubmissionDateTime": Nothing }
 
 
 
@@ -806,7 +805,7 @@ instance encodeQueryString :: Encode QueryString where encode = genericEncode op
 -- | <p>The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results.</p>
 newtype ResultConfiguration = ResultConfiguration 
   { "OutputLocation" :: (String)
-  , "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration)
+  , "EncryptionConfiguration" :: Maybe (EncryptionConfiguration)
   }
 derive instance newtypeResultConfiguration :: Newtype ResultConfiguration _
 derive instance repGenericResultConfiguration :: Generic ResultConfiguration _
@@ -816,19 +815,19 @@ instance encodeResultConfiguration :: Encode ResultConfiguration where encode = 
 
 -- | Constructs ResultConfiguration from required parameters
 newResultConfiguration :: String -> ResultConfiguration
-newResultConfiguration _OutputLocation = ResultConfiguration { "OutputLocation": _OutputLocation, "EncryptionConfiguration": (NullOrUndefined Nothing) }
+newResultConfiguration _OutputLocation = ResultConfiguration { "OutputLocation": _OutputLocation, "EncryptionConfiguration": Nothing }
 
 -- | Constructs ResultConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResultConfiguration' :: String -> ( { "OutputLocation" :: (String) , "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration) } -> {"OutputLocation" :: (String) , "EncryptionConfiguration" :: NullOrUndefined (EncryptionConfiguration) } ) -> ResultConfiguration
-newResultConfiguration' _OutputLocation customize = (ResultConfiguration <<< customize) { "OutputLocation": _OutputLocation, "EncryptionConfiguration": (NullOrUndefined Nothing) }
+newResultConfiguration' :: String -> ( { "OutputLocation" :: (String) , "EncryptionConfiguration" :: Maybe (EncryptionConfiguration) } -> {"OutputLocation" :: (String) , "EncryptionConfiguration" :: Maybe (EncryptionConfiguration) } ) -> ResultConfiguration
+newResultConfiguration' _OutputLocation customize = (ResultConfiguration <<< customize) { "OutputLocation": _OutputLocation, "EncryptionConfiguration": Nothing }
 
 
 
 -- | <p>The metadata and rows that comprise a query result set. The metadata describes the column structure and data types.</p>
 newtype ResultSet = ResultSet 
-  { "Rows" :: NullOrUndefined (RowList)
-  , "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata)
+  { "Rows" :: Maybe (RowList)
+  , "ResultSetMetadata" :: Maybe (ResultSetMetadata)
   }
 derive instance newtypeResultSet :: Newtype ResultSet _
 derive instance repGenericResultSet :: Generic ResultSet _
@@ -838,18 +837,18 @@ instance encodeResultSet :: Encode ResultSet where encode = genericEncode option
 
 -- | Constructs ResultSet from required parameters
 newResultSet :: ResultSet
-newResultSet  = ResultSet { "ResultSetMetadata": (NullOrUndefined Nothing), "Rows": (NullOrUndefined Nothing) }
+newResultSet  = ResultSet { "ResultSetMetadata": Nothing, "Rows": Nothing }
 
 -- | Constructs ResultSet's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResultSet' :: ( { "Rows" :: NullOrUndefined (RowList) , "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata) } -> {"Rows" :: NullOrUndefined (RowList) , "ResultSetMetadata" :: NullOrUndefined (ResultSetMetadata) } ) -> ResultSet
-newResultSet'  customize = (ResultSet <<< customize) { "ResultSetMetadata": (NullOrUndefined Nothing), "Rows": (NullOrUndefined Nothing) }
+newResultSet' :: ( { "Rows" :: Maybe (RowList) , "ResultSetMetadata" :: Maybe (ResultSetMetadata) } -> {"Rows" :: Maybe (RowList) , "ResultSetMetadata" :: Maybe (ResultSetMetadata) } ) -> ResultSet
+newResultSet'  customize = (ResultSet <<< customize) { "ResultSetMetadata": Nothing, "Rows": Nothing }
 
 
 
 -- | <p>The metadata that describes the column structure and data types of a table of query results.</p>
 newtype ResultSetMetadata = ResultSetMetadata 
-  { "ColumnInfo" :: NullOrUndefined (ColumnInfoList)
+  { "ColumnInfo" :: Maybe (ColumnInfoList)
   }
 derive instance newtypeResultSetMetadata :: Newtype ResultSetMetadata _
 derive instance repGenericResultSetMetadata :: Generic ResultSetMetadata _
@@ -859,18 +858,18 @@ instance encodeResultSetMetadata :: Encode ResultSetMetadata where encode = gene
 
 -- | Constructs ResultSetMetadata from required parameters
 newResultSetMetadata :: ResultSetMetadata
-newResultSetMetadata  = ResultSetMetadata { "ColumnInfo": (NullOrUndefined Nothing) }
+newResultSetMetadata  = ResultSetMetadata { "ColumnInfo": Nothing }
 
 -- | Constructs ResultSetMetadata's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResultSetMetadata' :: ( { "ColumnInfo" :: NullOrUndefined (ColumnInfoList) } -> {"ColumnInfo" :: NullOrUndefined (ColumnInfoList) } ) -> ResultSetMetadata
-newResultSetMetadata'  customize = (ResultSetMetadata <<< customize) { "ColumnInfo": (NullOrUndefined Nothing) }
+newResultSetMetadata' :: ( { "ColumnInfo" :: Maybe (ColumnInfoList) } -> {"ColumnInfo" :: Maybe (ColumnInfoList) } ) -> ResultSetMetadata
+newResultSetMetadata'  customize = (ResultSetMetadata <<< customize) { "ColumnInfo": Nothing }
 
 
 
 -- | <p>The rows that comprise a query result table.</p>
 newtype Row = Row 
-  { "Data" :: NullOrUndefined (DatumList')
+  { "Data" :: Maybe (DatumList')
   }
 derive instance newtypeRow :: Newtype Row _
 derive instance repGenericRow :: Generic Row _
@@ -880,12 +879,12 @@ instance encodeRow :: Encode Row where encode = genericEncode options
 
 -- | Constructs Row from required parameters
 newRow :: Row
-newRow  = Row { "Data": (NullOrUndefined Nothing) }
+newRow  = Row { "Data": Nothing }
 
 -- | Constructs Row's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRow' :: ( { "Data" :: NullOrUndefined (DatumList') } -> {"Data" :: NullOrUndefined (DatumList') } ) -> Row
-newRow'  customize = (Row <<< customize) { "Data": (NullOrUndefined Nothing) }
+newRow' :: ( { "Data" :: Maybe (DatumList') } -> {"Data" :: Maybe (DatumList') } ) -> Row
+newRow'  customize = (Row <<< customize) { "Data": Nothing }
 
 
 
@@ -900,8 +899,8 @@ instance encodeRowList :: Encode RowList where encode = genericEncode options
 
 newtype StartQueryExecutionInput = StartQueryExecutionInput 
   { "QueryString" :: (QueryString)
-  , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken)
-  , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext)
+  , "ClientRequestToken" :: Maybe (IdempotencyToken)
+  , "QueryExecutionContext" :: Maybe (QueryExecutionContext)
   , "ResultConfiguration" :: (ResultConfiguration)
   }
 derive instance newtypeStartQueryExecutionInput :: Newtype StartQueryExecutionInput _
@@ -912,17 +911,17 @@ instance encodeStartQueryExecutionInput :: Encode StartQueryExecutionInput where
 
 -- | Constructs StartQueryExecutionInput from required parameters
 newStartQueryExecutionInput :: QueryString -> ResultConfiguration -> StartQueryExecutionInput
-newStartQueryExecutionInput _QueryString _ResultConfiguration = StartQueryExecutionInput { "QueryString": _QueryString, "ResultConfiguration": _ResultConfiguration, "ClientRequestToken": (NullOrUndefined Nothing), "QueryExecutionContext": (NullOrUndefined Nothing) }
+newStartQueryExecutionInput _QueryString _ResultConfiguration = StartQueryExecutionInput { "QueryString": _QueryString, "ResultConfiguration": _ResultConfiguration, "ClientRequestToken": Nothing, "QueryExecutionContext": Nothing }
 
 -- | Constructs StartQueryExecutionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartQueryExecutionInput' :: QueryString -> ResultConfiguration -> ( { "QueryString" :: (QueryString) , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext) , "ResultConfiguration" :: (ResultConfiguration) } -> {"QueryString" :: (QueryString) , "ClientRequestToken" :: NullOrUndefined (IdempotencyToken) , "QueryExecutionContext" :: NullOrUndefined (QueryExecutionContext) , "ResultConfiguration" :: (ResultConfiguration) } ) -> StartQueryExecutionInput
-newStartQueryExecutionInput' _QueryString _ResultConfiguration customize = (StartQueryExecutionInput <<< customize) { "QueryString": _QueryString, "ResultConfiguration": _ResultConfiguration, "ClientRequestToken": (NullOrUndefined Nothing), "QueryExecutionContext": (NullOrUndefined Nothing) }
+newStartQueryExecutionInput' :: QueryString -> ResultConfiguration -> ( { "QueryString" :: (QueryString) , "ClientRequestToken" :: Maybe (IdempotencyToken) , "QueryExecutionContext" :: Maybe (QueryExecutionContext) , "ResultConfiguration" :: (ResultConfiguration) } -> {"QueryString" :: (QueryString) , "ClientRequestToken" :: Maybe (IdempotencyToken) , "QueryExecutionContext" :: Maybe (QueryExecutionContext) , "ResultConfiguration" :: (ResultConfiguration) } ) -> StartQueryExecutionInput
+newStartQueryExecutionInput' _QueryString _ResultConfiguration customize = (StartQueryExecutionInput <<< customize) { "QueryString": _QueryString, "ResultConfiguration": _ResultConfiguration, "ClientRequestToken": Nothing, "QueryExecutionContext": Nothing }
 
 
 
 newtype StartQueryExecutionOutput = StartQueryExecutionOutput 
-  { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId)
+  { "QueryExecutionId" :: Maybe (QueryExecutionId)
   }
 derive instance newtypeStartQueryExecutionOutput :: Newtype StartQueryExecutionOutput _
 derive instance repGenericStartQueryExecutionOutput :: Generic StartQueryExecutionOutput _
@@ -932,12 +931,12 @@ instance encodeStartQueryExecutionOutput :: Encode StartQueryExecutionOutput whe
 
 -- | Constructs StartQueryExecutionOutput from required parameters
 newStartQueryExecutionOutput :: StartQueryExecutionOutput
-newStartQueryExecutionOutput  = StartQueryExecutionOutput { "QueryExecutionId": (NullOrUndefined Nothing) }
+newStartQueryExecutionOutput  = StartQueryExecutionOutput { "QueryExecutionId": Nothing }
 
 -- | Constructs StartQueryExecutionOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartQueryExecutionOutput' :: ( { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) } -> {"QueryExecutionId" :: NullOrUndefined (QueryExecutionId) } ) -> StartQueryExecutionOutput
-newStartQueryExecutionOutput'  customize = (StartQueryExecutionOutput <<< customize) { "QueryExecutionId": (NullOrUndefined Nothing) }
+newStartQueryExecutionOutput' :: ( { "QueryExecutionId" :: Maybe (QueryExecutionId) } -> {"QueryExecutionId" :: Maybe (QueryExecutionId) } ) -> StartQueryExecutionOutput
+newStartQueryExecutionOutput'  customize = (StartQueryExecutionOutput <<< customize) { "QueryExecutionId": Nothing }
 
 
 
@@ -990,8 +989,8 @@ instance encodeToken :: Encode Token where encode = genericEncode options
 
 -- | <p>Indicates that the request was throttled.</p>
 newtype TooManyRequestsException = TooManyRequestsException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
-  , "Reason" :: NullOrUndefined (ThrottleReason)
+  { "Message" :: Maybe (ErrorMessage)
+  , "Reason" :: Maybe (ThrottleReason)
   }
 derive instance newtypeTooManyRequestsException :: Newtype TooManyRequestsException _
 derive instance repGenericTooManyRequestsException :: Generic TooManyRequestsException _
@@ -1001,20 +1000,20 @@ instance encodeTooManyRequestsException :: Encode TooManyRequestsException where
 
 -- | Constructs TooManyRequestsException from required parameters
 newTooManyRequestsException :: TooManyRequestsException
-newTooManyRequestsException  = TooManyRequestsException { "Message": (NullOrUndefined Nothing), "Reason": (NullOrUndefined Nothing) }
+newTooManyRequestsException  = TooManyRequestsException { "Message": Nothing, "Reason": Nothing }
 
 -- | Constructs TooManyRequestsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyRequestsException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) , "Reason" :: NullOrUndefined (ThrottleReason) } -> {"Message" :: NullOrUndefined (ErrorMessage) , "Reason" :: NullOrUndefined (ThrottleReason) } ) -> TooManyRequestsException
-newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "Message": (NullOrUndefined Nothing), "Reason": (NullOrUndefined Nothing) }
+newTooManyRequestsException' :: ( { "Message" :: Maybe (ErrorMessage) , "Reason" :: Maybe (ThrottleReason) } -> {"Message" :: Maybe (ErrorMessage) , "Reason" :: Maybe (ThrottleReason) } ) -> TooManyRequestsException
+newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "Message": Nothing, "Reason": Nothing }
 
 
 
 -- | <p>Information about a named query ID that could not be processed.</p>
 newtype UnprocessedNamedQueryId = UnprocessedNamedQueryId 
-  { "NamedQueryId" :: NullOrUndefined (NamedQueryId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "NamedQueryId" :: Maybe (NamedQueryId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnprocessedNamedQueryId :: Newtype UnprocessedNamedQueryId _
 derive instance repGenericUnprocessedNamedQueryId :: Generic UnprocessedNamedQueryId _
@@ -1024,12 +1023,12 @@ instance encodeUnprocessedNamedQueryId :: Encode UnprocessedNamedQueryId where e
 
 -- | Constructs UnprocessedNamedQueryId from required parameters
 newUnprocessedNamedQueryId :: UnprocessedNamedQueryId
-newUnprocessedNamedQueryId  = UnprocessedNamedQueryId { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "NamedQueryId": (NullOrUndefined Nothing) }
+newUnprocessedNamedQueryId  = UnprocessedNamedQueryId { "ErrorCode": Nothing, "ErrorMessage": Nothing, "NamedQueryId": Nothing }
 
 -- | Constructs UnprocessedNamedQueryId's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnprocessedNamedQueryId' :: ( { "NamedQueryId" :: NullOrUndefined (NamedQueryId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"NamedQueryId" :: NullOrUndefined (NamedQueryId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> UnprocessedNamedQueryId
-newUnprocessedNamedQueryId'  customize = (UnprocessedNamedQueryId <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "NamedQueryId": (NullOrUndefined Nothing) }
+newUnprocessedNamedQueryId' :: ( { "NamedQueryId" :: Maybe (NamedQueryId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"NamedQueryId" :: Maybe (NamedQueryId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> UnprocessedNamedQueryId
+newUnprocessedNamedQueryId'  customize = (UnprocessedNamedQueryId <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "NamedQueryId": Nothing }
 
 
 
@@ -1044,9 +1043,9 @@ instance encodeUnprocessedNamedQueryIdList :: Encode UnprocessedNamedQueryIdList
 
 -- | <p>Describes a query execution that failed to process.</p>
 newtype UnprocessedQueryExecutionId = UnprocessedQueryExecutionId 
-  { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "QueryExecutionId" :: Maybe (QueryExecutionId)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnprocessedQueryExecutionId :: Newtype UnprocessedQueryExecutionId _
 derive instance repGenericUnprocessedQueryExecutionId :: Generic UnprocessedQueryExecutionId _
@@ -1056,12 +1055,12 @@ instance encodeUnprocessedQueryExecutionId :: Encode UnprocessedQueryExecutionId
 
 -- | Constructs UnprocessedQueryExecutionId from required parameters
 newUnprocessedQueryExecutionId :: UnprocessedQueryExecutionId
-newUnprocessedQueryExecutionId  = UnprocessedQueryExecutionId { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "QueryExecutionId": (NullOrUndefined Nothing) }
+newUnprocessedQueryExecutionId  = UnprocessedQueryExecutionId { "ErrorCode": Nothing, "ErrorMessage": Nothing, "QueryExecutionId": Nothing }
 
 -- | Constructs UnprocessedQueryExecutionId's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnprocessedQueryExecutionId' :: ( { "QueryExecutionId" :: NullOrUndefined (QueryExecutionId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"QueryExecutionId" :: NullOrUndefined (QueryExecutionId) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> UnprocessedQueryExecutionId
-newUnprocessedQueryExecutionId'  customize = (UnprocessedQueryExecutionId <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "QueryExecutionId": (NullOrUndefined Nothing) }
+newUnprocessedQueryExecutionId' :: ( { "QueryExecutionId" :: Maybe (QueryExecutionId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"QueryExecutionId" :: Maybe (QueryExecutionId) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> UnprocessedQueryExecutionId
+newUnprocessedQueryExecutionId'  customize = (UnprocessedQueryExecutionId <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "QueryExecutionId": Nothing }
 
 
 
